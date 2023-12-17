@@ -1,0 +1,498 @@
+*,
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* LANDING PAGE / INDEX */
+
+/* header {
+    position: sticky;
+} */
+
+.top-bar {
+    background: var(--primer, #383961);
+    display: flex;
+    justify-content: space-between;
+}
+
+.top-bar h2 {
+    color: #EFEFEF;
+    text-align: center;
+    font-weight: 400;
+    font-size: 30px;
+}
+
+.top-bar .search-bar {
+    width: 840px;
+    height: 27px;
+    border-radius: 20px;
+    border: 1px solid #EFEFEF;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.top-bar .search-bar input {
+    background-color: #383961;
+    width: 97%;
+    height: 100%;
+    border: none;
+    outline: none;
+    padding: 0px 15px;
+    color: #EFEFEF;
+    font-size: 15px;
+}
+
+.top-bar #search-bar::placeholder {
+    color: #EFEFEF;
+    font-size: 15px;
+}
+
+.top-bar .search-bar svg {
+    padding: 4px;
+    color: #EFEFEF;
+    margin-right: 5px;
+}
+
+@media screen and (max-width: 520px) {
+    .top-bar .search-bar {
+        display: none;
+    }
+}
+
+.top-bar .nav-btn {
+    width: 240px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.top-bar button {
+    height: 27px;
+    border: 1px solid #383961;
+    border-radius: 20px;
+    background: var(--sekunder, #E9EBF8);
+    color: #031927;
+    font-size: 15px;
+}
+
+.top-bar .masuk {
+    width: 95px;
+}
+
+.top-bar .buat-tulisan {
+    width: 123px;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.nav-bar {
+    border-top: 1px solid #EFEFEF;
+    background: var(--primer, #383961);
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-bar a {
+    text-decoration: none;
+    color: #EFEFEF;
+    font-size: 15px;
+}
+
+.carousel-prev-icon svg {
+    width: 85%;
+}
+
+.carousel-next-icon svg {
+    width: 85%;
+}
+
+.carousel-caption {
+    background-color: rgba(233, 235, 248, 0.80);
+}
+
+.carousel-caption h5 {
+    color: #383961;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.carousel-caption p {
+    color: var(--primer, #383961);
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.berita-populer {
+    background-color: #E9EBF8;
+    height: 380px;
+}
+
+.berita-populer h5 {
+    color: #000;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.berita-populer p {
+    font-size: 17px;
+}
+
+.berita-populer .berita-populer-list {
+    height: 320px;
+}
+
+.berita-populer .berita-populer-list .list {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    border-bottom: 1px solid #000;
+}
+
+.berita-populer .berita-populer-list .list:last-child {
+    border: none;
+}
+
+.berita-populer .berita-populer-list .list .list-img {
+    width: 75px;
+    height: 60px;
+    min-width: 70px;
+    min-height: 60px;
+    max-width: 75px;
+    max-height: 60px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.berita-populer .berita-populer-list .list .list-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.berita-populer .berita-populer-list .list p {
+    font-size: 18px;
+    text-align: start;
+    line-height: 20px;
+    width: 350px;
+}
+
+.berita-terkini h3 {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.berita-terkini .carousel .carousel-inner .bt-img {
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.terpopuler .terpopuler-border {
+    border-right: 1px solid #000;
+}
+
+.terpopuler .kata-kunci-terpopuler li {
+    list-style: none;
+    border-bottom: 1px solid #000;
+}
+
+.terpopuler .tulisan-terpopuler li {
+    list-style: none;
+    border-bottom: 1px solid #000;
+}
+
+.terpopuler h5 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.terpopuler h6 {
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.terpopuler p {
+    font-size: 13px;
+}
+
+.untuk-kamu-baca h3 {
+    font-size: 25px;
+    font-weight: 700;
+    color: #383961;
+}
+
+.untuk-kamu-baca .ukb-card {
+    background-color: #E9EBF8;
+    border-radius: 18px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #383961
+}
+
+.untuk-kamu-baca .ukb-card .card-img {
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+}
+
+.footer {
+    background-color: #e9ebf8;
+    color: #383961;
+    height: 250px;
+    align-items: center;
+    display: flex;
+    margin-top: 50px;
+}
+
+.footer h2 {
+    font-size: 50px;
+    font-weight: bold;
+    line-height: 45px;
+}
+
+.footer p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.footer-kategori {
+    align-items: start;
+}
+
+.footer .footer-kategori h4 {
+    font-weight: bold;
+    font-size: 23px;
+}
+
+.footer ul {
+    color: #383961;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer ul li a {
+    color: #383961;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.footer ul li a:hover {
+    color: pink;
+}
+
+.footer h6 {
+    font-size: 18px;
+}
+
+.footer .sosmed-icon {
+    font-size: 23px;
+    justify-content: center;
+    display: flex;
+    gap: 10px;
+}
+
+.footer .sosmed-icon i {
+    cursor: pointer;
+}
+
+.footer .sosmed-icon i:hover {
+    color: pink;
+}
+
+.footer-bottom {
+    position: relative;
+    background-color: #383961;
+}
+
+.footer-bottom .copyright {
+    text-align: center;
+}
+
+.footer-bottom .copyright p {
+    color: #e9ebf8;
+    margin: 0;
+    padding: 5px;
+}
+
+/* @media screen and () {} */
+
+/* LOGIN PAGE */
+.back-button {
+    position: fixed;
+}
+
+.login {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.login .login-text h1 {
+    color: #000;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0 auto;
+}
+
+.login .login-text h2 {
+    color: #000;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 40px;
+}
+
+.login .login-text label {
+    color: #000;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.login .login-text input {
+    border-radius: 10px;
+    border: 1px solid #000;
+    height: 40px;
+    width: 450px;
+    padding: 0px 10px;
+}
+
+.login .login-text .password-input .pass-input input {
+    border-radius: 10px;
+    border: 1px solid #000;
+    height: 40px;
+    width: 410px;
+    padding: 0px 10px;
+}
+
+.login .login-text .password-input .pass-input span {
+    background-color: #FFF;
+    border-color: #000;
+    border-radius: 10px;
+    border-left: none;
+}
+
+.login .login-text button {
+    color: #EFEFEF;
+    font-size: 20px;
+    font-weight: 400;
+    width: 170px;
+    height: 33px;
+    border-radius: 10px;
+    background: #383961;
+}
+
+.login .login-text .daftar {
+    color: #000;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.login .login-text .daftar a {
+    color: #383961;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration-line: underline;
+
+}
+
+.login img {
+    width: 380px;
+    height: auto;
+}
+
+/* SIGN IN PAGE */
+
+.signin {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.signin .signin-text h1 {
+    color: #000;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0 auto;
+
+}
+
+.signin .signin-text h2 {
+    color: #000;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 40px;
+}
+
+.signin .signin-text label {
+    color: #000;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.signin .signin-text input {
+    border-radius: 10px;
+    border: 1px solid #000;
+    height: 40px;
+    width: 450px;
+    padding: 0px 10px;
+}
+
+.signin .signin-text button {
+    color: #EFEFEF;
+    font-size: 20px;
+    font-weight: 400;
+    width: 170px;
+    height: 33px;
+    border-radius: 10px;
+    background: #383961;
+}
+
+.signin .signin-text .masuk {
+    color: #000;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.signin .signin-text .masuk a {
+    color: #383961;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration-line: underline;
+}
+
+.signin img {
+    width: 350px;
+    height: auto;
+}
+
+/* BERANDA AKUN NO TULISAN */
+.akun .nav-btn i {
+    color: #EFEFEF;
+    font-size: 23px;
+    width: 100px;
+    text-align: center;
+    align-self: center;
+}
+
+.tulisan-saya-img {
+    background-color: pink;
+    width: 300px;
+}
+
+.akun img {
+    object-fit: cover;
+    width: 300px;
+    height: auto;
+}
