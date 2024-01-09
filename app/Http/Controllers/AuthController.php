@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Session;
 class AuthController extends Controller
 {
     public function register(){
-        return view('register');
+        return view('register.index');
     }
 
     public function store(Request $request){
@@ -28,7 +28,7 @@ class AuthController extends Controller
     
     public function login()
     {
-        return view('login');
+        return view('login.index');
     }
 
     public function authenticate(Request $request)

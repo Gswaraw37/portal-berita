@@ -17,7 +17,7 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/berita/{id}', [HomeController::class, 'show']);
+Route::get('/berita/{slug}', [HomeController::class, 'show']);
 
 Route::get('/login', [AuthController::class, 'login'])->middleware('guest');
 Route::post('/login', [AuthController::class, 'authenticate']);

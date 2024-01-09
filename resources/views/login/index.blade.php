@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>LOGIN</title>
     <!--css style-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
 
     <!--cdn bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -41,13 +41,13 @@
                 <h1>Masuk Akun</h1>
                 <h2>Silakan masuk untuk menggunakan layanan <br> dari BRINI secara lengkap</h2>
                 <div class="username-input">
-                    <label for="email">Email</label><br>
+                    <label for="username">Email</label><br>
                     <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" required value="{{ old('email') }}">
                 </div>
                 <div class="password-input mt-2">
                     <label for="password">Kata Sandi</label><br>
-                    <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password" required value="{{ old('password') }}">
                     <div class="pass-input input-group flex-nowrap">
+                        <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password" required value="{{ old('password') }}">
                         <span class="input-group-text" id="addon-wrapping">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 30 30" fill="none">
                                 <path
@@ -64,7 +64,7 @@
             </div>
             <img class="mt-5" src="images/Login.png" alt="">
         </div>
-    </form>    
+    </form>
     <!--cdn bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"

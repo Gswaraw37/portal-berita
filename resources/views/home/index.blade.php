@@ -38,12 +38,11 @@
                     <path d="M20.9999 20.9999L16.6499 16.6499" stroke="#EFEFEF" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round" />
                 </svg>
-                {{-- <i class="fa-solid fa-magnifying-glass"></i> --}}
+                <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
             </div>
             <div class="nav-btn">
                 @if (Auth::user('guest'))
-                    {{-- <i class="fas fa-circle-user"></i> --}}
-                    <button type="button" style="width:45px; margin-left:500px" class="masuk mx-1 btn btn-danger dropdown-toggle dropdown-toggle-split fas fa-circle-user" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                    <button type="button" style="width:45px;" class="masuk mx-1 btn btn-danger dropdown-toggle dropdown-toggle-split fas fa-circle-user" data-bs-toggle="dropdown" aria-expanded="false"></button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="/profile">Profile</a></li>
                         <li><hr class="dropdown-divider"></li>
@@ -55,6 +54,7 @@
                     <button class="buat-tulisan mx-1"><a style="text-decoration: none; color: #031927" href="/login">Buat Tulisan</a></button>
                 @endif
             </div>
+
         </div>
         <!-- TOPBAR END -->
 
@@ -86,7 +86,7 @@
                     <div class="carousel-inner">
                         @foreach ($carousels as $beritaa)
                         <div class="carousel-item active">
-                            <a href="/berita/{{ $beritaa->slug }}">
+                            <a href="/berita/{{ $beritaa->slug }}" style="text-decoration: none">
                                 <img src="images/flynn.png" class="d-block w-100 rounded-4" alt="...">
                                 <div class="carousel-caption d-none d-md-block mb-4 py-0">
                                     <h5 class="m-0">{{ $beritaa->judul }}</h5>
@@ -127,62 +127,75 @@
                 </div>
             </div>
             <div class="col-5">
-                <div class="berita-populer">
-                    <h5 class="pt-2">Berita Populer</h5>
-                    <div class="berita-populer-list overflow-y-scroll overflow-x-hidden mx-4">
-                        <div class="list py-1">
-                            <div class="list-img">
+                <div class="berita-populer" style="background-color: #E9EBF8;">
+                    <h3 class="pt-2">Berita Populer</h3>
+                    <div class="berita-populer-wrapper">
+
+                        @php
+                            $arr = [];
+                            $arr2 = [];
+                        @endphp
+
+                        @foreach ($beritas2 as $berita)
+                            @php
+                                $arr[] = $berita->judul;
+                                $arr2[] = $berita->slug;
+                            @endphp
+                        @endforeach
+
+                        <div class="berita-populer-list">
+                            <a href="/berita/{{ $arr2[0] }}" style="text-decoration: none; display:flex; color:black">
                                 <img src="images/kodok.png" alt="">
-                            </div>
-                            <p>Lorem ipsum dolor sit amet.</p>
+                                <p class="m-2">{{ $arr[0] }}</p>
+                            </a>
                         </div>
-                        <div class="list py-1">
-                            <div class="list-img">
-                                <img src="images/maximus.png" alt="">
-                            </div>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit, atque.</p>
-                        </div>
-                        <div class="list py-1">
-                            <div class="list-img">
+                        <div class="berita-populer-list">
+                            <a href="/berita/{{ $arr2[3] }}" style="text-decoration: none; display:flex; color:black">
                                 <img src="images/flynn.png" alt="">
-                            </div>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                                <p class="m-2">{{ $arr[3] }}</p>
+                            </a>
                         </div>
-                        <div class="list py-1">
-                            <div class="list-img">
+                        <div class="berita-populer-list">
+                            <a href="/berita/{{ $arr2[5] }}" style="text-decoration: none; display:flex; color:black">
+                                <img src="images/maximus.png" alt="">
+                                <p class="m-2">{{ $arr[5] }}</p>
+                            </a>
+                        </div>
+                        <div class="berita-populer-list">
+                            <a href="/berita/{{ $arr2[37] }}" style="text-decoration: none; display:flex; color:black">
                                 <img src="images/kodok.png" alt="">
-                            </div>
-                            <p>Lorem ipsum dolor sit amet.</p>
+                                <p class="m-2">{{ $arr[37] }}</p>
+                            </a>
                         </div>
-                        <div class="list py-1">
-                            <div class="list-img">
-                                <img src="images/maximus.png" alt="">
-                            </div>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit, atque.</p>
-                        </div>
-                        <div class="list py-1">
-                            <div class="list-img">
+                        <div class="berita-populer-list">
+                            <a href="/berita/{{ $arr2[9] }}" style="text-decoration: none; display:flex; color:black">
                                 <img src="images/flynn.png" alt="">
-                            </div>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                                <p class="m-2">{{ $arr[9] }}</p>
+                            </a>
                         </div>
-                        <div class="list py-1">
-                            <div class="list-img">
+                        <div class="berita-populer-list">
+                            <a href="/berita/{{ $arr2[11] }}" style="text-decoration: none; display:flex; color:black">
+                                <img src="images/maximus.png" alt="">
+                                <p class="m-2">{{ $arr[11] }}</p>
+                            </a>
+                        </div>
+                        <div class="berita-populer-list">
+                            <a href="/berita/{{ $arr2[13] }}" style="text-decoration: none; display:flex; color:black">
                                 <img src="images/kodok.png" alt="">
-                            </div>
-                            <p>Lorem ipsum dolor sit amet.</p>
+                                <p class="m-2">{{ $arr[13] }}</p>
+                            </a>
                         </div>
-                        <div class="list py-1">
-                            <div class="list-img">
-                                <img src="images/maximus.png" alt="">
-                            </div>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit, atque.</p>
-                        </div>
-                        <div class="list py-1">
-                            <div class="list-img">
+                        <div class="berita-populer-list">
+                            <a href="/berita/{{ $arr2[17] }}" style="text-decoration: none; display:flex; color:black">
                                 <img src="images/flynn.png" alt="">
-                            </div>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                                <p class="m-2">{{ $arr[17] }}</p>
+                            </a>
+                        </div>
+                        <div class="berita-populer-list">
+                            <a href="/berita/{{ $arr2[35] }}" style="text-decoration: none; display:flex; color:black">
+                                <img src="images/maximus.png" alt="">
+                                <p class="m-2">{{ $arr[35] }}</p>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -195,26 +208,92 @@
     <div class="berita-terkini px-3 py-2 mt-3">
         <h3>Berita Terkini</h3>
         <div id="carouselBT" class="carousel slide">
+
+            @php
+                $arr = [];
+                $arr2 = [];
+            @endphp
+
+            @foreach ($carousels2 as $berita)
+                @php
+                    $arr[] = $berita->judul;
+                    $arr2[] = $berita->slug;
+                @endphp
+            @endforeach
+
             <div class="carousel-inner">
-                @foreach ($carousels2 as $berita2)
                 <div class="carousel-item active">
                     <div class="row">
                         <div class="col">
-                            <img src="images/maximus.png" class="d-block w-100 bt-img" alt="kodok">
-                            <p>{{ $berita2->judul }}</p>
+                            <a href="/berita/{{ $arr2[0] }}" style="text-decoration: none">
+                                <img src="images/maximus.png" class="d-block w-100 bt-img" alt="kodok">
+                                <div class="berita-terkini-overlay">
+                                    <p>{{ $arr[0] }}</p>
+                                </div>
+                            </a>
                         </div>
                         <div class="col">
-                            <img src="images/flynn.png" class="d-block w-100 bt-img" alt="flynn">
+                            <a href="/berita/{{ $arr2[1] }}" style="text-decoration: none">
+                                <img src="images/maximus.png" class="d-block w-100 bt-img" alt="kodok">
+                                <div class="berita-terkini-overlay">
+                                    <p>{{ $arr[1] }}</p>
+                                </div>
+                            </a>
                         </div>
                         <div class="col">
-                            <img src="images/maximus.png" class="d-block w-100 bt-img" alt="maximus">
+                            <a href="/berita/{{ $arr2[2] }}" style="text-decoration: none">
+                                <img src="images/maximus.png" class="d-block w-100 bt-img" alt="kodok">
+                                <div class="berita-terkini-overlay">
+                                    <p>{{ $arr[2] }}</p>
+                                </div>
+                            </a>
                         </div>
                         <div class="col">
-                            <img src="images/kodok.png" class="d-block w-100 bt-img" alt="maximus">
+                            <a href="/berita/{{ $arr2[3] }}" style="text-decoration: none">
+                                <img src="images/maximus.png" class="d-block w-100 bt-img" alt="kodok">
+                                <div class="berita-terkini-overlay">
+                                    <p>{{ $arr[3] }}</p>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
-                @endforeach
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col">
+                            <a href="/berita/{{ $arr2[4] }}" style="text-decoration: none">
+                                <img src="images/maximus.png" class="d-block w-100 bt-img" alt="kodok">
+                                <div class="berita-terkini-overlay">
+                                    <p>{{ $arr[4] }}</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a href="/berita/{{ $arr2[5] }}" style="text-decoration: none">
+                                <img src="images/maximus.png" class="d-block w-100 bt-img" alt="kodok">
+                                <div class="berita-terkini-overlay">
+                                    <p>{{ $arr[5] }}</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a href="/berita/{{ $arr2[6] }}" style="text-decoration: none">
+                                <img src="images/maximus.png" class="d-block w-100 bt-img" alt="kodok">
+                                <div class="berita-terkini-overlay">
+                                    <p>{{ $arr[6] }}</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a href="/berita/{{ $arr2[8] }}" style="text-decoration: none">
+                                <img src="images/maximus.png" class="d-block w-100 bt-img" alt="kodok">
+                                <div class="berita-terkini-overlay">
+                                    <p>{{ $arr[8] }}</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselBT" data-bs-slide="prev">
                 <span class="carousel-prev-icon" aria-hidden="true">
@@ -248,9 +327,9 @@
     <div class="terpopuler mt-5">
         <div class="row justify-content-center">
             <!-- KATA KUNCI-->
-            <div class="col-5 px-5 terpopuler-border">
+            <div class="col-lg-4 col-md-5 col-sm-6 terpopuler-border">
                 <h5 class="text-center">Kata Kunci Terpopuler</h5>
-                <ol class="kata-kunci-terpopuler px-5">
+                <ol class="kata-kunci-terpopuler px-5 text-start">
                     <li>
                         <h6 class="m-0">ChatGPT</h6>
                         <p class="m-0">613 unggahan</p>
@@ -274,9 +353,9 @@
                 </ol>
             </div>
             <!-- TULISAN -->
-            <div class="col-5 px-5">
+            <div class="col-lg-4 col-md-5 col-sm-6">
                 <h5 class="text-center">Tulisan Terpopuler</h5>
-                <ol class="tulisan-terpopuler px-5">
+                <ol class="tulisan-terpopuler px-5 text-start">
                     <li>
                         <h6 class="m-0">Skincare paling ampuh</h6>
                         <p class="m-0">2013 kali dibaca</p>
@@ -310,67 +389,71 @@
             @foreach ($beritas as $berita)
             <div class="col mb-3">
                 <div class="ukb-card">
-                    <img src="images/flynn.png" class="card-img" alt="...">
-                    <p class="card-text p-1">{{ $berita->judul }}</p>
+                    <a href="/berita/{{ $berita->slug }}" style="text-decoration: none; color:black;">
+                        <img src="images/flynn.png" class="card-img" alt="...">
+                        <p class="card-text p-1">{{ $berita->judul }}</p>
+                    </a>
                 </div>
             </div>
             @endforeach
+            {{-- {{ $beritas->withQueryString()->links() }} --}}
         </div>
     </div>
     <!-- UNTUK KAMU BACA END -->
-
     <!-- CONTENT END -->
 
     <!-- FOOTER START -->
-    <!-- Footer Start -->
-    <div class="footer">
-        <div class="container-fluid">
-            <div class="row mt-3 align-items-center text-center">
-                <div class="col-3">
-                    <h2>B R I N I</h2>
-                    <p>Berita Terkini</p>
-                </div>
-                <div class="col-3">
-                    <div class="footer-kategori">
-                        <h4>Kategori</h4>
-                        <ul>
-                            <li><a href="#">Ekonomi</a></li>
-                            <li><a href="#">Teknologi</a></li>
-                            <li><a href="#">Hukum</a></li>
-                            <li><a href="#">Sosial</a></li>
-                            <li><a href="#">Kesehatan</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <ul>
-                        <li><a href="#">Tentang Kami</a></li>
-                        <li><a href="#">Kontak</a></li>
-                        <li><a href="#">Kebijakan Pribadi</a></li>
-                        <li><a href="#">Syarat dan Ketentuan</a></li>
-                    </ul>
-                </div>
-                <div class="col-3">
-                    <h6>Sosial Media</h6>
-                    <div class="sosmed-icon">
-                        <i class="fa-brands fa-instagram"></i>
-                        <i class="fa-brands fa-x-twitter"></i>
-                        <i class="fa-regular fa-envelope"></i>
-                    </div>
+    <div class="container-fluid mt-5 footer">
+        <div class="row pt-4 align-items-center text-center">
+            <div class="col-lg-3 col-md-3 col-sm-3 mb-4 footer-1 text-center">
+                <h1 class="m-0">BRINI</h1>
+                <p class="m-0">Berita Terkini</p>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 mb-4 footer-2">
+                <h6 class="">Kategori</h6>
+                <a href="#">
+                    <p class="m-0">Ekonomi</p>
+                </a>
+                <a href="#">
+                    <p class="m-0">Teknologi</p>
+                </a>
+                <a href="#">
+                    <p class="m-0">Hukum</p>
+                </a>
+                <a href="#">
+                    <p class="m-0">Sosial</p>
+                </a>
+                <a href="#">
+                    <p class="m-0">Kesehatan</p>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 mb-4 footer-3">
+                <a href="#">
+                    <p class="m-0">Tentang Kami</p>
+                </a>
+                <a href="#">
+                    <p class="m-0">Kontak</p>
+                </a>
+                <a href="#">
+                    <p class="m-0">Kebijakan Pribadi</p>
+                </a>
+                <a href="#">
+                    <p class="m-0">Syarat dan Ketentuan</p>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 mb-4 footer-4 text-center">
+                <p class="m-0">Sosial Media</p>
+                <div class="sosial-media-icons">
+                    <a href=""><i class="fa-brands fa-instagram"></i></a>
+                    <a href=""><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href=""><i class="fa-regular fa-envelope"></i></a>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Footer End -->
-    <!-- Footer Bottom Start -->
-    <div class="footer-bottom">
-        <div class="container-fluid">
-            <div class="copyright">
-                <p>Copyright &copy; 2023, BRINI. All Rights Reserved.</p>
-            </div>
-        </div>
+    <div class="container-fluid text-center copyright p-1 m-0">
+        Copyright &copy 2023, BRINI. All Rights Reserved.
     </div>
-    <!-- Footer Bottom End -->
     <!-- FOOTER END -->
 
     <!--cdn bootstrap-->
