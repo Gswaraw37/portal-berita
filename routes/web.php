@@ -2,8 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\TulisanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +21,12 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/berita/{slug}', [HomeController::class, 'show']);
+
+Route::get('/kategori/{kategori}', [KategoriController::class, 'show']);
+
+Route::get('/profile/{username}', [ProfileController::class, 'show']);
+
+Route::get('/buat-tulisan', [TulisanController::class, 'create']);
 
 Route::get('/login', [AuthController::class, 'login'])->middleware('guest');
 Route::post('/login', [AuthController::class, 'authenticate']);

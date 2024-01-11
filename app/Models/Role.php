@@ -10,8 +10,8 @@ class Role extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'role',
+    protected $guarded = [
+        'id'
     ];
 
     public function user(): HasMany

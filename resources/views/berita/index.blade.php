@@ -44,7 +44,7 @@
                 @if (Auth::user('guest'))
                     <button type="button" style="width:45px;" class="masuk mx-1 btn btn-danger dropdown-toggle dropdown-toggle-split fas fa-circle-user" data-bs-toggle="dropdown" aria-expanded="false"></button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                        <li><a class="dropdown-item" href="/profile/{{ $users->username }}">Profile</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><button class="masuk mx-1"><a style="text-decoration: none; color: #031927" href="/logout">Keluar</a></button></li>
                     </ul>
@@ -62,7 +62,7 @@
         <div class="nav-bar py-1 px-2">
             <a href="/">Beranda</a>
             @foreach ($kategoris as $kategori)
-                <a href="/{{ $kategori->kategori }}">{{ $kategori->kategori }}</a>
+                <a href="/kategori/{{ $kategori->kategori }}">{{ $kategori->kategori }}</a>
             @endforeach
         </div>
         <!-- NAVBAR END -->
@@ -73,58 +73,37 @@
     <div class="container-fluid mt-4 single-news">
         <div class="row">
             <div class="col-lg-8 col-md-8 col-sm-8">
-                <img class="img-fluid w-100 rounded-4 mb-4" src="images/kodok.png" style="object-fit: cover;">
+                <img class="img-fluid w-100 rounded-4 mb-4" src="https://source.unsplash.com/1417x745?{{ $beritas->kategori->kategori }}" style="object-fit: cover;">
                 <p>{{ $beritas->isi }}</p>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4">
                 <h4>{{ $beritas->judul }}</h4>
-                <span>{{ \Carbon\Carbon::parse($beritas->created_at)->format('d/m/Y') }} | {{ \Carbon\Carbon::parse($beritas->created_at)->format('H:i') }}</span>
+                <span>{{ \Carbon\Carbon::parse($beritas->created_at)->isoFormat('dddd, D MMMM Y') }} | {{ \Carbon\Carbon::parse($beritas->created_at)->format('H:i') }}</span><br>
+                <span>{{ \Carbon\Carbon::parse($beritas->created_at)->diffForHumans() }}</span>
                 <div class="news-penulis align-items-center">
                     <div class=" news-penulis-img">
-                        <img class="img-fluid" src="images/flynn.png" style="object-fit: cover;">
+                        <img class="img-fluid" src="{{ asset('images/flynn.png') }}" style="object-fit: cover;">
                     </div>
                     <div class="news-penulis-text">
-                        {{-- <p class="m-0">{{ $beritas->user->username }}</p> --}}
-                        <span>{{ $roles->role->role }}</span>
+                        <p class="m-0">{{ $beritas3->user->username }}</p>
+                        <span>{{ $beritas3->user->role->role }}</span>
                     </div>
                 </div>
                 <hr>
+                @foreach($carousels->skip(4) as $berita)
                 <div class="mb-2 pb-2">
-                    <a href="">
+                    <a href="/berita/{{ $berita->slug }}">
                         <div class="right-img">
-                            <img class="img-fluid rounded-4" src="images/maximus.png" alt="">
+                            <img class="img-fluid rounded-4" src="{{ asset('images/maximus.png') }}" alt="">
                             <div class="caption">
-                                <h6>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h6>
-                                <p class="m-0">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse, tempora.
+                                <h6>{{ $berita->judul }}</h6>
+                                <p class="m-0">{{ $berita->rangkuman }}
                                 </p>
                             </div>
                         </div>
                     </a>
                 </div>
-                <div class="mb-2 pb-2">
-                    <a href="">
-                        <div class="right-img">
-                            <img class="img-fluid rounded-4" src="images/maximus.png" alt="">
-                            <div class="caption">
-                                <h6>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h6>
-                                <p class="m-0">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse, tempora.
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="mb-2 pb-2">
-                    <a href="">
-                        <div class="right-img">
-                            <img class="img-fluid rounded-4" src="images/maximus.png" alt="">
-                            <div class="caption">
-                                <h6>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h6>
-                                <p class="m-0">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse, tempora.
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                @endforeach
             </div>
         </div>
         <hr>
@@ -136,7 +115,7 @@
                 <div class="col mb-3">
                     <div class="ukb-card">
                         <a href="/berita/{{ $berita->slug }}" style="text-decoration: none; color:black;">
-                            <img src="images/flynn.png" class="card-img" alt="...">
+                            <img src="https://source.unsplash.com/1417x745?{{ $beritas->kategori->kategori }}" class="card-img" alt="...">
                             <p class="card-text p-1">{{ $berita->judul }}</p>
                         </a>
                     </div>
@@ -157,21 +136,9 @@
             </div>
             <div class="col-lg-3 col-md-3 col-sm-3 mb-4 footer-2">
                 <h6 class="">Kategori</h6>
-                <a href="#">
-                    <p class="m-0">Ekonomi</p>
-                </a>
-                <a href="#">
-                    <p class="m-0">Teknologi</p>
-                </a>
-                <a href="#">
-                    <p class="m-0">Hukum</p>
-                </a>
-                <a href="#">
-                    <p class="m-0">Sosial</p>
-                </a>
-                <a href="#">
-                    <p class="m-0">Kesehatan</p>
-                </a>
+                @foreach ($kategoris as $kategori)
+                    <a href="/kategori/{{ $kategori->kategori }}">{{ $kategori->kategori }}</a><br>
+                @endforeach
             </div>
             <div class="col-lg-3 col-md-3 col-sm-3 mb-4 footer-3">
                 <a href="#">

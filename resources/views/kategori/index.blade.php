@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BRINI</title>
+    <title>EKONOMI</title>
     <!--css style-->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
 
@@ -68,7 +68,7 @@
         <!-- NAVBAR END -->
     </header>
     <!-- HEADER END -->
-
+    <h4 class="category-title text-center py-1" style="background-color: #E9EBF8; font-weight: 400;">{{ $beritas2->kategori }}</h4>
     <!-- CONTENT START -->
     <!-- BERITA POPULER START -->
     <div class="container-fluid text-center mt-3">
@@ -130,13 +130,12 @@
                 <div class="berita-populer" style="background-color: #E9EBF8;">
                     <h3 class="pt-2">Berita Populer</h3>
                     <div class="berita-populer-wrapper">
-
                         @php
                             $arr = [];
                             $arr2 = [];
                         @endphp
 
-                        @foreach ($beritas2 as $berita)
+                        @foreach ($carousels2 as $berita)
                             @php
                                 $arr[] = $berita->judul;
                                 $arr2[] = $berita->slug;
@@ -150,51 +149,27 @@
                             </a>
                         </div>
                         <div class="berita-populer-list">
+                            <a href="/berita/{{ $arr2[1] }}" style="text-decoration: none; display:flex; color:black">
+                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
+                                <p class="m-2">{{ $arr[1] }}</p>
+                            </a>
+                        </div>
+                        <div class="berita-populer-list">
+                            <a href="/berita/{{ $arr2[6] }}" style="text-decoration: none; display:flex; color:black">
+                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
+                                <p class="m-2">{{ $arr[6] }}</p>
+                            </a>
+                        </div>
+                        <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[3] }}" style="text-decoration: none; display:flex; color:black">
                                 <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
                                 <p class="m-2">{{ $arr[3] }}</p>
                             </a>
                         </div>
                         <div class="berita-populer-list">
-                            <a href="/berita/{{ $arr2[5] }}" style="text-decoration: none; display:flex; color:black">
+                            <a href="/berita/{{ $arr2[7] }}" style="text-decoration: none; display:flex; color:black">
                                 <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
-                                <p class="m-2">{{ $arr[5] }}</p>
-                            </a>
-                        </div>
-                        <div class="berita-populer-list">
-                            <a href="/berita/{{ $arr2[37] }}" style="text-decoration: none; display:flex; color:black">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
-                                <p class="m-2">{{ $arr[37] }}</p>
-                            </a>
-                        </div>
-                        <div class="berita-populer-list">
-                            <a href="/berita/{{ $arr2[9] }}" style="text-decoration: none; display:flex; color:black">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
-                                <p class="m-2">{{ $arr[9] }}</p>
-                            </a>
-                        </div>
-                        <div class="berita-populer-list">
-                            <a href="/berita/{{ $arr2[11] }}" style="text-decoration: none; display:flex; color:black">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
-                                <p class="m-2">{{ $arr[11] }}</p>
-                            </a>
-                        </div>
-                        <div class="berita-populer-list">
-                            <a href="/berita/{{ $arr2[13] }}" style="text-decoration: none; display:flex; color:black">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
-                                <p class="m-2">{{ $arr[13] }}</p>
-                            </a>
-                        </div>
-                        <div class="berita-populer-list">
-                            <a href="/berita/{{ $arr2[17] }}" style="text-decoration: none; display:flex; color:black">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
-                                <p class="m-2">{{ $arr[17] }}</p>
-                            </a>
-                        </div>
-                        <div class="berita-populer-list">
-                            <a href="/berita/{{ $arr2[35] }}" style="text-decoration: none; display:flex; color:black">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
-                                <p class="m-2">{{ $arr[35] }}</p>
+                                <p class="m-2">{{ $arr[7] }}</p>
                             </a>
                         </div>
                     </div>
@@ -204,187 +179,7 @@
     </div>
     <!-- BERITA POPULER END -->
 
-    <!-- BERITA TERKINI START -->
-    <div class="berita-terkini px-3 py-2 mt-3">
-        <h3>Berita Terkini</h3>
-        <div id="carouselBT" class="carousel slide">
-
-            @php
-                $arr = [];
-                $arr2 = [];
-            @endphp
-
-            @foreach ($carousels2 as $berita)
-                @php
-                    $arr[] = $berita->judul;
-                    $arr2[] = $berita->slug;
-                @endphp
-            @endforeach
-
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="row">
-                        <div class="col">
-                            <a href="/berita/{{ $arr2[0] }}" style="text-decoration: none">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="kodok">
-                                <div class="berita-terkini-overlay">
-                                    <p>{{ $arr[0] }}</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="/berita/{{ $arr2[1] }}" style="text-decoration: none">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="img-fluid d-block w-100 bt-img" alt="kodok">
-                                <div class="berita-terkini-overlay caption">
-                                    <p>{{ $arr[1] }}</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="/berita/{{ $arr2[2] }}" style="text-decoration: none">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="kodok">
-                                <div class="berita-terkini-overlay">
-                                    <p>{{ $arr[2] }}</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="/berita/{{ $arr2[3] }}" style="text-decoration: none">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="kodok">
-                                <div class="berita-terkini-overlay">
-                                    <p>{{ $arr[3] }}</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="row">
-                        <div class="col">
-                            <a href="/berita/{{ $arr2[4] }}" style="text-decoration: none">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="kodok">
-                                <div class="berita-terkini-overlay">
-                                    <p>{{ $arr[4] }}</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="/berita/{{ $arr2[5] }}" style="text-decoration: none">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="kodok">
-                                <div class="berita-terkini-overlay">
-                                    <p>{{ $arr[5] }}</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="/berita/{{ $arr2[6] }}" style="text-decoration: none">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="kodok">
-                                <div class="berita-terkini-overlay">
-                                    <p>{{ $arr[6] }}</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="/berita/{{ $arr2[8] }}" style="text-decoration: none">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="kodok">
-                                <div class="berita-terkini-overlay">
-                                    <p>{{ $arr[8] }}</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselBT" data-bs-slide="prev">
-                <span class="carousel-prev-icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
-                        <path
-                            d="M22 42C33.046 42 42 33.046 42 22C42 10.954 33.046 2 22 2C10.954 2 2 10.954 2 22C2 33.046 10.954 42 22 42Z"
-                            fill="#E9EBF8" stroke="#E9EBF8" stroke-width="4" stroke-linejoin="round" />
-                        <path d="M25 31L16 22L25 13" fill="#E9EBF8" />
-                        <path d="M25 31L16 22L25 13" stroke="#383961" stroke-width="4" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                    </svg>
-                </span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselBT" data-bs-slide="next">
-                <span class="carousel-next-icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
-                        <path
-                            d="M22 2C10.954 2 2 10.954 2 22C2 33.046 10.954 42 22 42C33.046 42 42 33.046 42 22C42 10.954 33.046 2 22 2Z"
-                            fill="#E9EBF8" stroke="#E9EBF8" stroke-width="4" stroke-linejoin="round" />
-                        <path d="M19 13L28 22L19 31" fill="#E9EBF8" />
-                        <path d="M19 13L28 22L19 31" stroke="#383961" stroke-width="4" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                    </svg>
-                </span>
-            </button>
-        </div>
-    </div>
-    <!-- BERITA TERKINI END -->
-
-    <!-- TERPOPULER START -->
-    <div class="terpopuler mt-5">
-        <div class="row justify-content-center">
-            <!-- KATA KUNCI-->
-            <div class="col-lg-4 col-md-5 col-sm-6 terpopuler-border">
-                <h5 class="text-center">Kata Kunci Terpopuler</h5>
-                <ol class="kata-kunci-terpopuler px-5 text-start">
-                    <li>
-                        <h6 class="m-0">ChatGPT</h6>
-                        <p class="m-0">613 unggahan</p>
-                    </li>
-                    <li>
-                        <h6 class="m-0 mt-2">ChatGPT</h6>
-                        <p class="m-0">613 unggahan</p>
-                    </li>
-                    <li>
-                        <h6 class="m-0 mt-2">ChatGPT</h6>
-                        <p class="m-0">613 unggahan</p>
-                    </li>
-                    <li>
-                        <h6 class="m-0 mt-2">ChatGPT</h6>
-                        <p class="m-0">613 unggahan</p>
-                    </li>
-                    <li>
-                        <h6 class="m-0 mt-2">ChatGPT</h6>
-                        <p class="m-0">613 unggahan</p>
-                    </li>
-                </ol>
-            </div>
-            <!-- TULISAN -->
-            <div class="col-lg-4 col-md-5 col-sm-6">
-                <h5 class="text-center">Tulisan Terpopuler</h5>
-                <ol class="tulisan-terpopuler px-5 text-start">
-                    <li>
-                        <h6 class="m-0">Skincare paling ampuh</h6>
-                        <p class="m-0">2013 kali dibaca</p>
-                    </li>
-                    <li>
-                        <h6 class="m-0 mt-2">Skincare paling ampuh</h6>
-                        <p class="m-0">2013 kali dibaca</p>
-                    </li>
-                    <li>
-                        <h6 class="m-0 mt-2">Skincare paling ampuh</h6>
-                        <p class="m-0">2013 kali dibaca</p>
-                    </li>
-                    <li>
-                        <h6 class="m-0 mt-2">Skincare paling ampuh</h6>
-                        <p class="m-0">2013 kali dibaca</p>
-                    </li>
-                    <li>
-                        <h6 class="m-0 mt-2">Skincare paling ampuh</h6>
-                        <p class="m-0">2013 kali dibaca</p>
-                    </li>
-                </ol>
-            </div>
-        </div>
-    </div>
-    <!-- TERPOPULER END -->
-
-    <!-- UNTUK KAMU BACA START -->
     <div class="untuk-kamu-baca text-center mt-5">
-        <h3 class="mb-3">Untuk Kamu Baca</h3>
         <div class="row row-cols-3 mx-3 px-2">
             @foreach ($beritas as $berita)
             <div class="col mb-3">
@@ -396,10 +191,27 @@
                 </div>
             </div>
             @endforeach
-            {{-- {{ $beritas->withQueryString()->links() }} --}}
         </div>
     </div>
-    <!-- UNTUK KAMU BACA END -->
+
+    <div class="container-fluid mt-5">
+        <div class="row justify-content-center">
+            @foreach ($beritas3->skip(6) as $berita)
+            <div class="col-6 mb-3">
+                <div class="category-news-list">
+                    <a href="/berita/{{ $berita->slug }}" style="text-decoration: none; color:black; display:flex">
+                        <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
+                        <div class="category-news-list-text">
+                            <h6>{{ $berita->judul }}</h6>
+                            <p class="mb-2" style="line-height: 15px;">{{ $berita->rangkuman }}</p>
+                            <p class="text-end"><small>{{ \Carbon\Carbon::parse($berita->created_at)->isoFormat('D MMMM Y') }}</small></p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
     <!-- CONTENT END -->
 
     <!-- FOOTER START -->

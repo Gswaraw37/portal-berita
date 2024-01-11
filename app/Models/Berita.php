@@ -11,14 +11,8 @@ class Berita extends Model
 {
     use HasFactory, Sluggable;
 
-    protected $fillable = [
-        'judul',
-        'kategori_id',
-        'slug',
-        'rangkuman',
-        'gambar',
-        'penulis_id',
-        'isi'
+    protected $guarded = [
+        'id'
     ];
 
     public function sluggable(): array
@@ -32,7 +26,7 @@ class Berita extends Model
 
     public function kategori(): BelongsTo
     {
-        return $this->belongsTo(Kategori::class, 'kategori_id', 'id');
+        return $this->belongsTo(Kategori::class);
     }
 
     public function user(): BelongsTo
