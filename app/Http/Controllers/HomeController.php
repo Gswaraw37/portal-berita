@@ -29,6 +29,7 @@ class HomeController extends Controller
         $berita = Berita::with('user')->where('slug', $judul)->first();
         return view('berita.index', [
             'beritas' => $berita,
+            'users' => Auth::user(),
             'kategoris' => Kategori::all(),
             'carousels' => Berita::latest()->paginate(7),
             'beritas3' => Berita::with('user')->latest()->first(),

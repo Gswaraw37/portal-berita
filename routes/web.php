@@ -25,6 +25,7 @@ Route::get('/berita/{slug}', [HomeController::class, 'show']);
 Route::get('/kategori/{kategori}', [KategoriController::class, 'show']);
 
 Route::get('/profile/{username}', [ProfileController::class, 'show']);
+Route::get('/profile/edit/{username}', [ProfileController::class, 'edit']);
 
 Route::get('/buat-tulisan', [TulisanController::class, 'create']);
 

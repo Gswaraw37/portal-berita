@@ -80,7 +80,7 @@
                             <p class="nama m-0">{{ $users->username }}</p>
                             <p class="tulisan m-0">{{ $tulisans }} tulisan</p>
                             <p class="bergabung-sejak m-0 mb-4">Bergabung sejak {{ \Carbon\Carbon::parse($users->created_at)->isoFormat('D MMMM Y') }}</p>
-                            <a href="/profile/edit/{{ $users->username }}"><button class="px-3">Edit Profil</button></a>
+                            <a href="/profile/edit/{{ $users->id }}"><button class="px-3">Edit Profil</button></a>
                         </div>
                     </div>
                 </div>

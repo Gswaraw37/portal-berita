@@ -23,4 +23,12 @@ class ProfileController extends Controller
             'profiles' => $profile
         ]);
     }
+
+    public function edit($id)
+    {
+        $users = User::findOrFail($id);
+        return view('akun.edit', [
+            'users' => $users,
+        ]);
+    }
 }
