@@ -20,7 +20,7 @@ class HomeController extends Controller
             'beritas' => Berita::paginate(6),
             'carousels' => Berita::latest()->paginate(3),
             'carousels2' => Berita::latest()->take(9)->get(),
-            'beritas2' => Berita::all()
+            'beritas2' => Berita::all(),
         ]);
     }
 

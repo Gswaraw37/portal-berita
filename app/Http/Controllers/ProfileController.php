@@ -31,4 +31,24 @@ class ProfileController extends Controller
             'users' => $users,
         ]);
     }
+
+    public function update(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'username' => 'required',
+        ]);
+
+        $user = User::findOrFail($id);
+        
+        $user->update($validatedData);
+        return redirect('/profile');
+    }
+
+    public function destroy($id)
+    {
+        $deletedBerita = Berita::findOrFail($id);
+        $deletedBerita->delete();
+
+        return redirect('/profile');
+    }
 }

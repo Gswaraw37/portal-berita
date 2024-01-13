@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BERITA</title>
+    <title>BRINI</title>
     <!--css style-->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
 
@@ -70,67 +70,27 @@
         </div>
         <!-- NAVBAR END -->
     </header>
-    <!-- HEADER END -->
 
-    <!-- CONTENT START -->
-    <div class="container-fluid mt-4 single-news">
-        <div class="row">
-            <div class="col-lg-8 col-md-8 col-sm-8">
-                <img class="img-fluid w-100 rounded-4 mb-4" src="https://source.unsplash.com/1417x745?{{ $beritas->kategori->kategori }}" style="object-fit: cover;">
-                <p>{{ $beritas->isi }}</p>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4">
-                <h4>{{ $beritas->judul }}</h4>
-                <span>{{ \Carbon\Carbon::parse($beritas->created_at)->isoFormat('dddd, D MMMM Y') }} | {{ \Carbon\Carbon::parse($beritas->created_at)->format('H:i') }}</span><br>
-                <span>{{ \Carbon\Carbon::parse($beritas->created_at)->diffForHumans() }}</span>
-                <div class="news-penulis align-items-center">
-                    <div class=" news-penulis-img">
-                        <img class="img-fluid" src="{{ asset('images/flynn.png') }}" style="object-fit: cover;">
-                    </div>
-                    <div class="news-penulis-text">
-                        <p class="m-0">{{ $beritas3->user->username }}</p>
-                        <span>{{ $beritas3->user->role->role }}</span>
-                    </div>
-                </div>
-                <hr>
-                @foreach($carousels->skip(4) as $berita)
-                <div class="mb-2 pb-2">
-                    <a href="/berita/{{ $berita->slug }}">
-                        <div class="right-img">
-                            <img class="img-fluid rounded-4" src="{{ asset('images/maximus.png') }}" alt="">
-                            <div class="caption">
-                                <h6>{{ $berita->judul }}</h6>
-                                <p class="m-0">{{ $berita->rangkuman }}
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                @endforeach
-            </div>
-        </div>
-        <hr>
-        <!-- UNTUK KAMU BACA START -->
-        <div class="untuk-kamu-baca text-center mt-4">
-            <h3 class="mb-3">Untuk Kamu Baca</h3>
-            <div class="row row-cols-3 mx-3 px-2">
-                @foreach($beritas2 as $berita)
+    <div class="untuk-kamu-baca text-center">
+        <h4 class="category-title text-center py-1" style="background-color: #E9EBF8; font-weight: 400;">{{ request('search') }}</h4>
+        <div class="row row-cols-3 mx-3 px-2">
+            @if ($beritas->count())
+                @foreach ($beritas as $berita)
                 <div class="col mb-3">
                     <div class="ukb-card">
                         <a href="/berita/{{ $berita->slug }}" style="text-decoration: none; color:black;">
-                            <img src="https://source.unsplash.com/1417x745?{{ $beritas->kategori->kategori }}" class="card-img" alt="...">
+                            <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="card-img" alt="...">
                             <p class="card-text p-1">{{ $berita->judul }}</p>
                         </a>
                     </div>
                 </div>
                 @endforeach
-            </div>
+            @else
+                <p class="keterangan">Belum ada tulisan</p>
+            @endif
         </div>
-        <!-- UNTUK KAMU BACA END -->
     </div>
-    <!-- CONTENT END -->
 
-    <!-- FOOTER START -->
     <div class="container-fluid mt-5 footer">
         <div class="row pt-4 align-items-center text-center">
             <div class="col-lg-3 col-md-3 col-sm-3 mb-4 footer-1 text-center">
@@ -171,6 +131,7 @@
         Copyright &copy 2023, BRINI. All Rights Reserved.
     </div>
     <!-- FOOTER END -->
+
     <!--cdn bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"

@@ -115,6 +115,10 @@
             <h6 class="m-0">Judul</h6>
             <input class="col-12" type="text" placeholder="Masukkan judul tulisan Anda">
         </div>
+        <div class="judul mb-3 mx-4">
+            <h6 class="m-0">Slug</h6>
+            <input class="col-12" type="text" placeholder="Masukkan judul tulisan Anda">
+        </div>
         <div class="kategori mb-3 mx-4">
             <h6 class="m-0">Kategori</h6>
             <select class="col-12" id="inputKategori">

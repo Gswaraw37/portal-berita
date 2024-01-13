@@ -22,10 +22,14 @@ use App\Http\Controllers\TulisanController;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/berita/{slug}', [HomeController::class, 'show']);
 
+Route::get('/search', [BeritaController::class, 'index']);
+
 Route::get('/kategori/{kategori}', [KategoriController::class, 'show']);
 
 Route::get('/profile/{username}', [ProfileController::class, 'show']);
 Route::get('/profile/edit/{username}', [ProfileController::class, 'edit']);
+Route::put('/profile/{id}', [ProfileController::class, 'update']);
+Route::delete('/berita/{id}', [ProfileController::class, 'destroy']);
 
 Route::get('/buat-tulisan', [TulisanController::class, 'create']);
 

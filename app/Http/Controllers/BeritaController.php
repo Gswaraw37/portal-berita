@@ -18,7 +18,8 @@ class BeritaController extends Controller
             $berita->where('judul', 'like', '%' . request('search') . '%');
         }
 
-        return view('berita', [
+        return view('home.search', [
+            'kategoris' => Kategori::all(),
             'beritas' => $berita->get()
         ]);
     }
