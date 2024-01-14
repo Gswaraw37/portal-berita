@@ -51,11 +51,11 @@
             </div>
             <div class="judul mb-3 mx-4">
                 <label for="slug" class="m-0 form-label">Slug</label>
-                <input class="col-12 form-control" type="text" name="slug" id="slug" placeholder="Slug akan digenerate.." disabled readonly>
+                <input class="col-12 form-control" type="text" name="slug" id="slug" placeholder="Slug akan digenerate.." readonly>
             </div>
             <div class="judul mb-3 mx-4">
-                <label for="user_id" class="m-0 form-label">Penulis: {{ Auth::user()->username }}</label>
-                <input class="col-12 form-control" type="text" name="user_id" id="user_id" value="{{ Auth::user()->id }}" disabled>
+                <label for="user_id" class="m-0 form-label">Penulis: {{ auth()->user()->username }}</label>
+                <input class="col-12 form-control" type="text" name="user_id" id="user_id" value="{{ auth()->user()->id }}" readonly>
             </div>
             <div class="judul mb-3 mx-4">
                 <label for="gambar" class="m-0 form-label">Gambar Berita</label>

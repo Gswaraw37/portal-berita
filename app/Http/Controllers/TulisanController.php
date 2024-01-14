@@ -31,27 +31,22 @@ class TulisanController extends Controller
 
     public function store(Request $request)
     {
-        try {
-            $validatedData = $request->validate([
-                'judul' => 'required|max:255',
-                'slug' => 'required',
-                'user_id' => 'required|user:id',
-                'gambar' => 'image|file|max:5120|mimes:jpeg,png,jpg,gif,webp',
-                'kategori_id' => 'required|exists:kategoris,id',
-                'isi' => 'required'
-            ]);
-            $validatedData['rangkuman'] = Str::limit(strip_tags($request->isi), 100);
+        $validatedData = $request->validate([
+            'judul' => 'required|max:255',
+            'slug' => 'required',
+            'gambar' => 'image|file|max:5120|mimes:jpeg,png,jpg,gif,webp',
+            'kategori_id' => 'required|exists:kategoris,id',
+            'isi' => 'required'
+        ]);
+        $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['rangkuman'] = Str::limit(strip_tags($request->isi), 100);
             
-            if($request->file('gambar')){
-                $validatedData['gambar'] = $request->file('gambar')->store('gambar-berita');
-            }
-            
-            Berita::create($validatedData);
-            return redirect('/');
-        } catch (\Exception $e) {
-            Log::error('Error in creating Tulisan: ' . $e->getMessage());
-            return redirect('/')->with('error', $e->getMessage());
+        if($request->file('gambar')){
+            $validatedData['gambar'] = $request->file('gambar')->store('gambar-berita');
         }
+            
+        Berita::create($validatedData);
+        return redirect('/');
     }
 
     public function checkSlug(Request $request)
