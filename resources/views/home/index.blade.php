@@ -24,7 +24,6 @@
 </head>
 
 <body>
-    <h1>{{ session('error') }}</h1>
     <!-- HEADER START -->
     <header>
         <!-- TOPBAR START -->
@@ -55,7 +54,25 @@
                     <button class="buat-tulisan mx-1"><a style="text-decoration: none; color: #031927" href="/buat-tulisan">Buat Tulisan</a></button>
                 @else
                     <button class="masuk mx-1"><a style="text-decoration: none; color: #031927" href="/login">Masuk</a></button>
-                    <button class="buat-tulisan mx-1"><a style="text-decoration: none; color: #031927" href="/login">Buat Tulisan</a></button>
+                    <button type="button" class="buat-tulisan mx-1" data-bs-toggle="modal" data-bs-target="#notlogin-tulisan-modal"><a style="text-decoration: none; color: #031927">Buat Tulisan</a></button>
+                    <div class="modal" id="notlogin-tulisan-modal">
+                        <div class="modal-dialog modal-lg modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header modal-bg1"></div>
+                                <div class="modal-body modal-bg1 dis-modal">
+                                    <div>
+                                        <h5>ingin membuat tulisan?</h5>
+                                        <h5 class="mb-5">Silakan masuk ke akun terlebih dahulu</h5>
+                                        <button type="button" class="button1" data-bs-dismiss="modal">Keluar</button>
+                                        <button type="button" class="button2"><a href="/login" style="text-decoration: none; color: white">Masuk Akun</a></button>
+                                    </div>
+                                    
+                                    <img src="images/not_login1.png" alt="">
+                                </div>
+                                <div class="modalFooter text-center modal-bg1"></div>
+                            </div>
+                        </div>
+                    </div>
                 @endif
             </div>
 
@@ -142,19 +159,21 @@
                         @php
                             $arr = [];
                             $arr2 = [];
+                            $arr3 = [];
                         @endphp
 
                         @foreach ($beritas2 as $berita)
                             @php
                                 $arr[] = $berita->judul;
                                 $arr2[] = $berita->slug;
+                                $arr3[] = $berita->gambar;
                             @endphp
                         @endforeach
 
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[0] }}" style="text-decoration: none; display:flex; color:black">
-                                @if ($berita->gambar)
-                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="...">
+                                @if ($arr3[0])
+                                    <img src="{{ asset('storage/' . $arr3[0]) }}" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
                                 @endif
@@ -163,8 +182,8 @@
                         </div>
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[3] }}" style="text-decoration: none; display:flex; color:black">
-                                @if ($berita->gambar)
-                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="...">
+                                @if ($arr3[3])
+                                    <img src="{{ asset('storage/' . $arr3[3]) }}" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
                                 @endif
@@ -173,8 +192,8 @@
                         </div>
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[5] }}" style="text-decoration: none; display:flex; color:black">
-                                @if ($berita->gambar)
-                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="...">
+                                @if ($arr3[5])
+                                    <img src="{{ asset('storage/' . $arr3[5]) }}" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
                                 @endif
@@ -183,8 +202,8 @@
                         </div>
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[37] }}" style="text-decoration: none; display:flex; color:black">
-                                @if ($berita->gambar)
-                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="...">
+                                @if ($arr3[37])
+                                    <img src="{{ asset('storage/' . $arr3[37]) }}" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
                                 @endif
@@ -193,8 +212,8 @@
                         </div>
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[9] }}" style="text-decoration: none; display:flex; color:black">
-                                @if ($berita->gambar)
-                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="...">
+                                @if ($arr3[9])
+                                    <img src="{{ asset('storage/' . $arr3[9]) }}" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
                                 @endif
@@ -203,8 +222,8 @@
                         </div>
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[11] }}" style="text-decoration: none; display:flex; color:black">
-                                @if ($berita->gambar)
-                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="...">
+                                @if ($arr3[11])
+                                    <img src="{{ asset('storage/' . $arr3[11]) }}" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
                                 @endif
@@ -213,8 +232,8 @@
                         </div>
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[13] }}" style="text-decoration: none; display:flex; color:black">
-                                @if ($berita->gambar)
-                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="...">
+                                @if ($arr3[13])
+                                    <img src="{{ asset('storage/' . $arr3[13]) }}" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
                                 @endif
@@ -223,8 +242,8 @@
                         </div>
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[17] }}" style="text-decoration: none; display:flex; color:black">
-                                @if ($berita->gambar)
-                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="...">
+                                @if ($arr3[17])
+                                    <img src="{{ asset('storage/' . $arr3[17]) }}" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
                                 @endif
@@ -233,8 +252,8 @@
                         </div>
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[35] }}" style="text-decoration: none; display:flex; color:black">
-                                @if ($berita->gambar)
-                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="...">
+                                @if ($arr3[35])
+                                    <img src="{{ asset('storage/' . $arr3[35]) }}" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
                                 @endif
@@ -256,12 +275,14 @@
             @php
                 $arr = [];
                 $arr2 = [];
+                $arr3 = [];
             @endphp
 
             @foreach ($carousels2 as $berita)
                 @php
                     $arr[] = $berita->judul;
                     $arr2[] = $berita->slug;
+                    $arr3[] = $berita->gambar;
                 @endphp
             @endforeach
 
@@ -270,8 +291,8 @@
                     <div class="row">
                         <div class="col">
                             <a href="/berita/{{ $arr2[0] }}" style="text-decoration: none">
-                                @if ($berita->gambar)
-                                    <img src="{{ asset('storage/' . $berita->gambar) }}" class="d-block w-100 bt-img" alt="...">
+                                @if ($arr3[0])
+                                    <img src="{{ asset('storage/' . $arr3[0]) }}" class="d-block w-100 bt-img" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="">
                                 @endif
@@ -282,8 +303,8 @@
                         </div>
                         <div class="col">
                             <a href="/berita/{{ $arr2[1] }}" style="text-decoration: none">
-                                @if ($berita->gambar)
-                                    <img src="{{ asset('storage/' . $berita->gambar) }}" class="d-block w-100 bt-img" alt="...">
+                                @if ($arr3[1])
+                                    <img src="{{ asset('storage/' . $arr3[1]) }}" class="d-block w-100 bt-img" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="">
                                 @endif
@@ -294,8 +315,8 @@
                         </div>
                         <div class="col">
                             <a href="/berita/{{ $arr2[2] }}" style="text-decoration: none">
-                                @if ($berita->gambar)
-                                    <img src="{{ asset('storage/' . $berita->gambar) }}" class="d-block w-100 bt-img" alt="...">
+                                @if ($arr3[2])
+                                    <img src="{{ asset('storage/' . $arr3[2]) }}" class="d-block w-100 bt-img" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="">
                                 @endif
@@ -306,8 +327,8 @@
                         </div>
                         <div class="col">
                             <a href="/berita/{{ $arr2[3] }}" style="text-decoration: none">
-                                @if ($berita->gambar)
-                                    <img src="{{ asset('storage/' . $berita->gambar) }}" class="d-block w-100 bt-img" alt="...">
+                                @if ($arr3[3])
+                                    <img src="{{ asset('storage/' . $arr3[3]) }}" class="d-block w-100 bt-img" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="">
                                 @endif
@@ -322,8 +343,8 @@
                     <div class="row">
                         <div class="col">
                             <a href="/berita/{{ $arr2[4] }}" style="text-decoration: none">
-                                @if ($berita->gambar)
-                                    <img src="{{ asset('storage/' . $berita->gambar) }}" class="d-block w-100 bt-img" alt="...">
+                                @if ($arr3[4])
+                                    <img src="{{ asset('storage/' . $arr3[4]) }}" class="d-block w-100 bt-img" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="">
                                 @endif
@@ -334,8 +355,8 @@
                         </div>
                         <div class="col">
                             <a href="/berita/{{ $arr2[5] }}" style="text-decoration: none">
-                                @if ($berita->gambar)
-                                    <img src="{{ asset('storage/' . $berita->gambar) }}" class="d-block w-100 bt-img" alt="...">
+                                @if ($arr3[5])
+                                    <img src="{{ asset('storage/' . $arr3[5]) }}" class="d-block w-100 bt-img" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="">
                                 @endif
@@ -346,8 +367,8 @@
                         </div>
                         <div class="col">
                             <a href="/berita/{{ $arr2[6] }}" style="text-decoration: none">
-                                @if ($berita->gambar)
-                                    <img src="{{ asset('storage/' . $berita->gambar) }}" class="d-block w-100 bt-img" alt="...">
+                                @if ($arr3[6])
+                                    <img src="{{ asset('storage/' . $arr3[6]) }}" class="d-block w-100 bt-img" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="">
                                 @endif
@@ -358,8 +379,8 @@
                         </div>
                         <div class="col">
                             <a href="/berita/{{ $arr2[8] }}" style="text-decoration: none">
-                                @if ($berita->gambar)
-                                    <img src="{{ asset('storage/' . $berita->gambar) }}" class="d-block w-100 bt-img" alt="...">
+                                @if ($arr3[8])
+                                    <img src="{{ asset('storage/' . $arr3[8]) }}" class="d-block w-100 bt-img" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="">
                                 @endif
@@ -430,27 +451,38 @@
             </div>
             <!-- TULISAN -->
             <div class="col-lg-4 col-md-5 col-sm-6">
-                <h5 class="text-center">Tulisan Terpopuler</h5>
+                <h5 class="text-center">Kategori Terpopuler</h5>
+                
+                @php
+                    $arr = [];
+                @endphp
+
+                @foreach ($kategoris as $kategori)
+                    @php
+                        $arr[] = $kategori->kategori;
+                    @endphp
+                @endforeach
+
                 <ol class="tulisan-terpopuler px-5 text-start">
                     <li>
-                        <h6 class="m-0">Skincare paling ampuh</h6>
-                        <p class="m-0">2013 kali dibaca</p>
+                        <h6 class="m-0 mt-2"><a href="/kategori/{{ $arr[1] }}" style="text-decoration: none; color:black">{{ $arr[1] }}</a></h6>
+                        <p class="m-0">{{ $teknologi }} Berita</p>
                     </li>
                     <li>
-                        <h6 class="m-0 mt-2">Skincare paling ampuh</h6>
-                        <p class="m-0">2013 kali dibaca</p>
+                        <h6 class="m-0 mt-2"><a href="/kategori/{{ $arr[2] }}" style="text-decoration: none; color:black">{{ $arr[2] }}</a></h6>
+                        <p class="m-0">{{ $hukum }} Berita</p>
                     </li>
                     <li>
-                        <h6 class="m-0 mt-2">Skincare paling ampuh</h6>
-                        <p class="m-0">2013 kali dibaca</p>
+                        <h6 class="m-0 mt-2"><a href="/kategori/{{ $arr[3] }}" style="text-decoration: none; color:black">{{ $arr[3] }}</a></h6>
+                        <p class="m-0">{{ $sosial }} Berita</p>
                     </li>
                     <li>
-                        <h6 class="m-0 mt-2">Skincare paling ampuh</h6>
-                        <p class="m-0">2013 kali dibaca</p>
+                        <h6 class="m-0 mt-2"><a href="/kategori/{{ $arr[4] }}" style="text-decoration: none; color:black">{{ $arr[4] }}</a></h6>
+                        <p class="m-0">{{ $kesehatan }} Berita</p>
                     </li>
                     <li>
-                        <h6 class="m-0 mt-2">Skincare paling ampuh</h6>
-                        <p class="m-0">2013 kali dibaca</p>
+                        <h6 class="m-0"><a href="/kategori/{{ $arr[0] }}" style="text-decoration: none; color:black">{{ $arr[0] }}</a></h6>
+                        <p class="m-0">{{ $ekonomi }} Berita</p>
                     </li>
                 </ol>
             </div>

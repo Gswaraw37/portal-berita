@@ -12,7 +12,7 @@ class ProfileController extends Controller
 {
     public function show($username)
     {
-        $berita = Berita::with('user')->count();
+        $berita = Berita::with('user')->where('user_id', Auth::user()->id)->count();
         $profile = User::with('berita')->where('username', $username)->first();
         return view('akun.index', [
             'kategoris' => Kategori::all(),
@@ -42,7 +42,7 @@ class ProfileController extends Controller
         $user = User::findOrFail($id);
         
         $user->update($validatedData);
-        return redirect('/profile');
+        return redirect('profile/'. auth()->user()->username);
     }
 
     public function destroy($id)
@@ -50,6 +50,6 @@ class ProfileController extends Controller
         $deletedBerita = Berita::findOrFail($id);
         $deletedBerita->delete();
 
-        return redirect('/profile');
+        return redirect('profile/'. auth()->user()->username);
     }
 }

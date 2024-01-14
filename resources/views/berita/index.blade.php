@@ -54,7 +54,25 @@
                     <button class="buat-tulisan mx-1"><a style="text-decoration: none; color: #031927" href="/buat-tulisan">Buat Tulisan</a></button>
                 @else
                     <button class="masuk mx-1"><a style="text-decoration: none; color: #031927" href="/login">Masuk</a></button>
-                    <button class="buat-tulisan mx-1"><a style="text-decoration: none; color: #031927" href="/login">Buat Tulisan</a></button>
+                    <button type="button" class="buat-tulisan mx-1" data-bs-toggle="modal" data-bs-target="#notlogin-tulisan-modal"><a style="text-decoration: none; color: #031927">Buat Tulisan</a></button>
+                    <div class="modal" id="notlogin-tulisan-modal">
+                        <div class="modal-dialog modal-lg modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header modal-bg1"></div>
+                                <div class="modal-body modal-bg1 dis-modal">
+                                    <div>
+                                        <h5>ingin membuat tulisan?</h5>
+                                        <h5 class="mb-5">Silakan masuk ke akun terlebih dahulu</h5>
+                                        <button type="button" class="button1" data-bs-dismiss="modal">Keluar</button>
+                                        <button type="button" class="button2"><a href="/login" style="text-decoration: none; color: white">Masuk Akun</a></button>
+                                    </div>
+                                    
+                                    <img src="images/not_login1.png" alt="">
+                                </div>
+                                <div class="modalFooter text-center modal-bg1"></div>
+                            </div>
+                        </div>
+                    </div>
                 @endif
             </div>
 
@@ -81,7 +99,7 @@
                 @else
                     <img class="img-fluid w-100 rounded-4 mb-4" src="https://source.unsplash.com/1417x745?{{ $beritas->kategori->kategori }}" style="object-fit: cover;">
                 @endif
-                <p>{{ $beritas->isi }}</p>
+                <p>{{ Str::limit(strip_tags($beritas->isi)) }}</p>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4">
                 <h4>{{ $beritas->judul }}</h4>
@@ -101,7 +119,11 @@
                 <div class="mb-2 pb-2">
                     <a href="/berita/{{ $berita->slug }}">
                         <div class="right-img">
-                            <img class="img-fluid rounded-4" src="{{ asset('images/maximus.png') }}" alt="">
+                            @if ($berita->gambar)
+                                <img class="img-fluid w-100 rounded-4 mb-4" src="{{ asset('storage/' . $berita->gambar) }}">
+                            @else
+                                <img class="img-fluid w-100 rounded-4 mb-4" src="https://source.unsplash.com/1417x745?{{ $beritas->kategori->kategori }}">
+                            @endif
                             <div class="caption">
                                 <h6>{{ $berita->judul }}</h6>
                                 <p class="m-0">{{ $berita->rangkuman }}

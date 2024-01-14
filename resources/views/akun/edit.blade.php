@@ -56,7 +56,41 @@
                     </svg>
                 </a>
             </div>
-            <button class="mb-5 simpan-btn" type="submit" name="submit">Simpan</button><br>
+            <div class="mb-3 input-kata-sandi">
+                <span>Kata Sandi</span>
+                <input type="password" id="password" name="password" value="{{ $users->password }}">
+            </div>
+            <button class="mb-5 simpan-btn" type="button" data-bs-toggle="modal" data-bs-target="#confirm-editprofil-modal"><a>Simpan</a></button><br>
+            <div class="modal" id="confirm-editprofil-modal">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header modal-bg1">
+                            <h5></h5>
+                            <button type="button" data-bs-dismiss="modal" aria-label="Close">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 50 50"
+                                    fill="none">
+                                    <path
+                                        d="M25.0001 45.8333C36.506 45.8333 45.8334 36.5059 45.8334 25C45.8334 13.494 36.506 4.16663 25.0001 4.16663C13.4941 4.16663 4.16675 13.494 4.16675 25C4.16675 36.5059 13.4941 45.8333 25.0001 45.8333Z"
+                                        stroke="black" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path d="M31.25 18.75L18.75 31.25" stroke="black" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M18.75 18.75L31.25 31.25" stroke="black" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg></button>
+                        </div>
+                        <div class="modal-body modal-bg1">
+                            <h5>Anda Yakin Ingin Menyimpan Perubahaan?</h5>
+                        </div>
+                        <div class="modalFooter text-center modal-bg1">
+                            <div class="mb-3">
+                                <button type="button" class="button1" data-bs-dismiss="modal">Batal</button>
+                                <button type="submit" name="submit" class="button2"><a>Simpan</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <button class="keluar-akun-btn" type="submit" name="submit"><a href="/logout" style="text-decoration: none; color: black">Keluar Akun</a></button>
         </form>
     </div>

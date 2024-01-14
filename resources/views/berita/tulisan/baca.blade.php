@@ -37,7 +37,7 @@
             <h3 class="m-0">{{ $beritas->judul }}</h3>
             <h6 class="m-0">Kategori : {{ $beritas->kategori->kategori }}</h6>
             <div class="edit text-end"><a href="" class="px-3">edit</a></div>
-            <p>{{ $beritas->isi }}</p>
+            <p>{{ Str::limit(strip_tags($beritas->isi)) }}</p>
             <p class="text-end"><small>Terakhir diedit {{ \Carbon\Carbon::parse($beritas->updated_at)->isoFormat('D MMMM') }} | {{ \Carbon\Carbon::parse($beritas->updated_at)->format('H:i') }}</small></p>
             <hr>
         </div>
