@@ -425,27 +425,26 @@
         <div class="row justify-content-center">
             <!-- KATA KUNCI-->
             <div class="col-lg-4 col-md-5 col-sm-6 terpopuler-border">
-                <h5 class="text-center">Kata Kunci Terpopuler</h5>
+                <h5 class="text-center">Penulis Terpopuler</h5>
+
+                @php
+                    $arr = [];
+                @endphp
+
+                @foreach ($user as $item)
+                    @php
+                        $arr[] = $item->username;
+                    @endphp
+                @endforeach
+
                 <ol class="kata-kunci-terpopuler px-5 text-start">
                     <li>
-                        <h6 class="m-0">ChatGPT</h6>
-                        <p class="m-0">613 unggahan</p>
+                        <h6 class="m-0 mt-2">{{ $arr[1] }}</h6>
+                        <p class="m-0">{{ $berita1 }} unggahan</p>
                     </li>
                     <li>
-                        <h6 class="m-0 mt-2">ChatGPT</h6>
-                        <p class="m-0">613 unggahan</p>
-                    </li>
-                    <li>
-                        <h6 class="m-0 mt-2">ChatGPT</h6>
-                        <p class="m-0">613 unggahan</p>
-                    </li>
-                    <li>
-                        <h6 class="m-0 mt-2">ChatGPT</h6>
-                        <p class="m-0">613 unggahan</p>
-                    </li>
-                    <li>
-                        <h6 class="m-0 mt-2">ChatGPT</h6>
-                        <p class="m-0">613 unggahan</p>
+                        <h6 class="m-0 mt-2">{{ $arr[3] }}</h6>
+                        <p class="m-0">{{ $berita2 }} unggahan</p>
                     </li>
                 </ol>
             </div>
@@ -481,7 +480,7 @@
                         <p class="m-0">{{ $kesehatan }} Berita</p>
                     </li>
                     <li>
-                        <h6 class="m-0"><a href="/kategori/{{ $arr[0] }}" style="text-decoration: none; color:black">{{ $arr[0] }}</a></h6>
+                        <h6 class="m-0 mt-2"><a href="/kategori/{{ $arr[0] }}" style="text-decoration: none; color:black">{{ $arr[0] }}</a></h6>
                         <p class="m-0">{{ $ekonomi }} Berita</p>
                     </li>
                 </ol>

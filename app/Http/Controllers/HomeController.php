@@ -19,6 +19,8 @@ class HomeController extends Controller
         $hukum = Berita::where('kategori_id', 3)->count();
         $sosial = Berita::where('kategori_id', 4)->count();
         $kesehatan = Berita::where('kategori_id', 5)->count();
+        $berita1 = Berita::where('user_id', 2)->count();
+        $berita2 = Berita::where('user_id', 4)->count();
         return view('home.index', [
             'kategoris' => Kategori::all(),
             'users' => Auth::user(),
@@ -26,11 +28,14 @@ class HomeController extends Controller
             'carousels' => Berita::latest()->paginate(3),
             'carousels2' => Berita::latest()->get(),
             'beritas2' => Berita::all(),
+            'user' => User::all(),
             'ekonomi' => $ekonomi,
             'teknologi' => $teknologi,
             'hukum' => $hukum,
             'sosial' => $sosial,
             'kesehatan' => $kesehatan,
+            'berita1' => $berita1,
+            'berita2' => $berita2,
         ]);
     }
 
