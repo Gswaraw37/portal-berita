@@ -66,7 +66,7 @@
                     <p class="daftar mt-5">Belum punya akun? <a href="/register">Daftar</a></p>
                 </div>
             </div>
-            <img class="mt-5" src="images/Login.png" alt="">
+            <img class="mt-5" src="{{ asset('images/Login.png') }}" alt="">
         </div>
     </form>
     <!--cdn bootstrap-->

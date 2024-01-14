@@ -65,10 +65,10 @@
                                         <h5>ingin membuat tulisan?</h5>
                                         <h5 class="mb-5">Silakan masuk ke akun terlebih dahulu</h5>
                                         <button type="button" class="button1" data-bs-dismiss="modal">Keluar</button>
-                                        <button type="button" class="button2"><a href="/login" style="text-decoration: none; color: white">Masuk Akun</a></button>
+                                        <button type="button" class="button2"><a href="/login" style="text-decoration: none; color: black">Masuk Akun</a></button>
                                     </div>
                                     
-                                    <img src="images/not_login1.png" alt="">
+                                    <img src="{{ asset('images/not_login1.png') }}" alt="">
                                 </div>
                                 <div class="modalFooter text-center modal-bg1"></div>
                             </div>

@@ -37,7 +37,7 @@
     <form action="/register" method="POST">
     @csrf
         <div class="signin">
-            <img class="mt-5" src="images/SignIn.png" alt="">
+            <img class="mt-5" src="{{ asset('images/SignIn.png') }}" alt="">
             <div class="signin-text mt-5">
                 <h1 class="text-start">Selamat Datang</h1>
                 <h2 class="text-start">Silakan buat akun terlebih dahulu</h2>
@@ -78,7 +78,7 @@
                                         </svg></button>
                                 </div>
                                 <div class="modal-body">
-                                    <img src="images/Success.png" alt="">
+                                    <img src="{{ asset('images/Success.png') }}" alt="">
                                 </div>
                                 <div class="modalFooter text-center">
                                     <button type="button" class="" data-bs-dismiss="modal">Close</button>
