@@ -79,7 +79,11 @@
                 <div class="col mb-3">
                     <div class="ukb-card">
                         <a href="/berita/{{ $berita->slug }}" style="text-decoration: none; color:black;">
-                            <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="card-img" alt="...">
+                            @if ($berita->gambar)
+                                <img src="{{ asset('storage/' . $berita->gambar) }}" class="d-block w-100 bt-img" class="card-img" alt="...">
+                            @else
+                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="card-img" alt="...">
+                            @endif
                             <p class="card-text p-1">{{ $berita->judul }}</p>
                         </a>
                     </div>

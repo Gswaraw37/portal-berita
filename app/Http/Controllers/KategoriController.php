@@ -18,7 +18,7 @@ class KategoriController extends Controller
             'beritas' => $kategori->berita->take(6),
             'beritas3' => $kategori->berita->take(10),
             'carousels' => $kategori->berita->take(3),
-            'carousels2' => $kategori->berita->take(10),
+            'carousels2' => $kategori->berita,
             'beritas2' => $kategori
         ]);
     }

@@ -36,6 +36,7 @@ class ProfileController extends Controller
     {
         $validatedData = $request->validate([
             'username' => 'required',
+            'password' => 'required'
         ]);
 
         $user = User::findOrFail($id);

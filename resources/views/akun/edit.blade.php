@@ -56,8 +56,8 @@
                     </svg>
                 </a>
             </div>
-            <button class="mb-5 simpan-btn">Simpan</button>
-            <button class="keluar-akun-btn">Keluar Akun</button>
+            <button class="mb-5 simpan-btn" type="submit" name="submit">Simpan</button><br>
+            <button class="keluar-akun-btn" type="submit" name="submit"><a href="/logout" style="text-decoration: none; color: black">Keluar Akun</a></button>
         </form>
     </div>
     <!-- cdn bootstrap -->

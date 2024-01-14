@@ -90,7 +90,11 @@
                         @foreach ($carousels as $beritaa)
                         <div class="carousel-item active">
                             <a href="/berita/{{ $beritaa->slug }}" style="text-decoration: none">
-                                <img src="https://source.unsplash.com/1417x745?{{ $beritaa->kategori->kategori }}" class="d-block w-100 rounded-4" alt="...">
+                                @if ($beritaa->gambar)
+                                    <img src="{{ asset('storage/' . $beritaa->gambar) }}" class="d-block w-100 rounded-4" alt="...">
+                                @else
+                                    <img src="https://source.unsplash.com/1417x745?{{ $beritaa->kategori->kategori }}" class="d-block w-100 rounded-4" alt="...">
+                                @endif
                                 <div class="carousel-caption d-none d-md-block mb-4 py-0">
                                     <h5 class="m-0">{{ $beritaa->judul }}</h5>
                                     <p class="m-0">{{ $beritaa->rangkuman }}</p>
@@ -147,31 +151,51 @@
 
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[0] }}" style="text-decoration: none; display:flex; color:black">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
+                                @if ($berita->gambar)
+                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="...">
+                                @else
+                                    <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
+                                @endif
                                 <p class="m-2">{{ $arr[0] }}</p>
                             </a>
                         </div>
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[1] }}" style="text-decoration: none; display:flex; color:black">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
+                                @if ($berita->gambar)
+                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="...">
+                                @else
+                                    <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
+                                @endif
                                 <p class="m-2">{{ $arr[1] }}</p>
                             </a>
                         </div>
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[6] }}" style="text-decoration: none; display:flex; color:black">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
+                                @if ($berita->gambar)
+                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="...">
+                                @else
+                                    <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
+                                @endif
                                 <p class="m-2">{{ $arr[6] }}</p>
                             </a>
                         </div>
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[3] }}" style="text-decoration: none; display:flex; color:black">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
+                                @if ($berita->gambar)
+                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="...">
+                                @else
+                                    <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
+                                @endif
                                 <p class="m-2">{{ $arr[3] }}</p>
                             </a>
                         </div>
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[7] }}" style="text-decoration: none; display:flex; color:black">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
+                                @if ($berita->gambar)
+                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="...">
+                                @else
+                                    <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
+                                @endif
                                 <p class="m-2">{{ $arr[7] }}</p>
                             </a>
                         </div>
@@ -188,7 +212,11 @@
             <div class="col mb-3">
                 <div class="ukb-card">
                     <a href="/berita/{{ $berita->slug }}" style="text-decoration: none; color:black;">
-                        <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="card-img" alt="...">
+                        @if ($berita->gambar)
+                            <img src="{{ asset('storage/' . $berita->gambar) }}" class="card-img" alt="...">
+                        @else
+                            <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="card-img" alt="...">
+                        @endif
                         <p class="card-text p-1">{{ $berita->judul }}</p>
                     </a>
                 </div>
@@ -203,7 +231,11 @@
             <div class="col-6 mb-3">
                 <div class="category-news-list">
                     <a href="/berita/{{ $berita->slug }}" style="text-decoration: none; color:black; display:flex">
-                        <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
+                        @if ($berita->gambar)
+                            <img src="{{ asset('storage/' . $berita->gambar) }}" alt="...">
+                        @else
+                            <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
+                        @endif
                         <div class="category-news-list-text">
                             <h6>{{ $berita->judul }}</h6>
                             <p class="mb-2" style="line-height: 15px;">{{ $berita->rangkuman }}</p>

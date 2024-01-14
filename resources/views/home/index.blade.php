@@ -24,6 +24,7 @@
 </head>
 
 <body>
+    <h1>{{ session('error') }}</h1>
     <!-- HEADER START -->
     <header>
         <!-- TOPBAR START -->
@@ -90,7 +91,11 @@
                         @foreach ($carousels as $beritaa)
                         <div class="carousel-item active">
                             <a href="/berita/{{ $beritaa->slug }}" style="text-decoration: none">
-                                <img src="https://source.unsplash.com/1417x745?{{ $beritaa->kategori->kategori }}" class="d-block w-100 rounded-4" alt="...">
+                                @if ($beritaa->gambar)
+                                    <img src="{{ asset('storage/' . $beritaa->gambar) }}" class="d-block w-100 rounded-4" alt="...">
+                                @else
+                                    <img src="https://source.unsplash.com/1417x745?{{ $beritaa->kategori->kategori }}" class="d-block w-100 rounded-4" alt="...">
+                                @endif
                                 <div class="carousel-caption d-none d-md-block mb-4 py-0">
                                     <h5 class="m-0">{{ $beritaa->judul }}</h5>
                                     <p class="m-0">{{ $beritaa->rangkuman }}</p>
@@ -148,55 +153,91 @@
 
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[0] }}" style="text-decoration: none; display:flex; color:black">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
+                                @if ($berita->gambar)
+                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="...">
+                                @else
+                                    <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
+                                @endif
                                 <p class="m-2">{{ $arr[0] }}</p>
                             </a>
                         </div>
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[3] }}" style="text-decoration: none; display:flex; color:black">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
+                                @if ($berita->gambar)
+                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="...">
+                                @else
+                                    <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
+                                @endif
                                 <p class="m-2">{{ $arr[3] }}</p>
                             </a>
                         </div>
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[5] }}" style="text-decoration: none; display:flex; color:black">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
+                                @if ($berita->gambar)
+                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="...">
+                                @else
+                                    <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
+                                @endif
                                 <p class="m-2">{{ $arr[5] }}</p>
                             </a>
                         </div>
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[37] }}" style="text-decoration: none; display:flex; color:black">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
+                                @if ($berita->gambar)
+                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="...">
+                                @else
+                                    <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
+                                @endif
                                 <p class="m-2">{{ $arr[37] }}</p>
                             </a>
                         </div>
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[9] }}" style="text-decoration: none; display:flex; color:black">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
+                                @if ($berita->gambar)
+                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="...">
+                                @else
+                                    <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
+                                @endif
                                 <p class="m-2">{{ $arr[9] }}</p>
                             </a>
                         </div>
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[11] }}" style="text-decoration: none; display:flex; color:black">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
+                                @if ($berita->gambar)
+                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="...">
+                                @else
+                                    <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
+                                @endif
                                 <p class="m-2">{{ $arr[11] }}</p>
                             </a>
                         </div>
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[13] }}" style="text-decoration: none; display:flex; color:black">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
+                                @if ($berita->gambar)
+                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="...">
+                                @else
+                                    <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
+                                @endif
                                 <p class="m-2">{{ $arr[13] }}</p>
                             </a>
                         </div>
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[17] }}" style="text-decoration: none; display:flex; color:black">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
+                                @if ($berita->gambar)
+                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="...">
+                                @else
+                                    <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
+                                @endif
                                 <p class="m-2">{{ $arr[17] }}</p>
                             </a>
                         </div>
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[35] }}" style="text-decoration: none; display:flex; color:black">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
+                                @if ($berita->gambar)
+                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="...">
+                                @else
+                                    <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
+                                @endif
                                 <p class="m-2">{{ $arr[35] }}</p>
                             </a>
                         </div>
@@ -229,7 +270,11 @@
                     <div class="row">
                         <div class="col">
                             <a href="/berita/{{ $arr2[0] }}" style="text-decoration: none">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="kodok">
+                                @if ($berita->gambar)
+                                    <img src="{{ asset('storage/' . $berita->gambar) }}" class="d-block w-100 bt-img" alt="...">
+                                @else
+                                    <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="">
+                                @endif
                                 <div class="berita-terkini-overlay">
                                     <p>{{ $arr[0] }}</p>
                                 </div>
@@ -237,7 +282,11 @@
                         </div>
                         <div class="col">
                             <a href="/berita/{{ $arr2[1] }}" style="text-decoration: none">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="img-fluid d-block w-100 bt-img" alt="kodok">
+                                @if ($berita->gambar)
+                                    <img src="{{ asset('storage/' . $berita->gambar) }}" class="d-block w-100 bt-img" alt="...">
+                                @else
+                                    <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="">
+                                @endif
                                 <div class="berita-terkini-overlay caption">
                                     <p>{{ $arr[1] }}</p>
                                 </div>
@@ -245,7 +294,11 @@
                         </div>
                         <div class="col">
                             <a href="/berita/{{ $arr2[2] }}" style="text-decoration: none">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="kodok">
+                                @if ($berita->gambar)
+                                    <img src="{{ asset('storage/' . $berita->gambar) }}" class="d-block w-100 bt-img" alt="...">
+                                @else
+                                    <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="">
+                                @endif
                                 <div class="berita-terkini-overlay">
                                     <p>{{ $arr[2] }}</p>
                                 </div>
@@ -253,7 +306,11 @@
                         </div>
                         <div class="col">
                             <a href="/berita/{{ $arr2[3] }}" style="text-decoration: none">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="kodok">
+                                @if ($berita->gambar)
+                                    <img src="{{ asset('storage/' . $berita->gambar) }}" class="d-block w-100 bt-img" alt="...">
+                                @else
+                                    <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="">
+                                @endif
                                 <div class="berita-terkini-overlay">
                                     <p>{{ $arr[3] }}</p>
                                 </div>
@@ -265,7 +322,11 @@
                     <div class="row">
                         <div class="col">
                             <a href="/berita/{{ $arr2[4] }}" style="text-decoration: none">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="kodok">
+                                @if ($berita->gambar)
+                                    <img src="{{ asset('storage/' . $berita->gambar) }}" class="d-block w-100 bt-img" alt="...">
+                                @else
+                                    <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="">
+                                @endif
                                 <div class="berita-terkini-overlay">
                                     <p>{{ $arr[4] }}</p>
                                 </div>
@@ -273,7 +334,11 @@
                         </div>
                         <div class="col">
                             <a href="/berita/{{ $arr2[5] }}" style="text-decoration: none">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="kodok">
+                                @if ($berita->gambar)
+                                    <img src="{{ asset('storage/' . $berita->gambar) }}" class="d-block w-100 bt-img" alt="...">
+                                @else
+                                    <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="">
+                                @endif
                                 <div class="berita-terkini-overlay">
                                     <p>{{ $arr[5] }}</p>
                                 </div>
@@ -281,7 +346,11 @@
                         </div>
                         <div class="col">
                             <a href="/berita/{{ $arr2[6] }}" style="text-decoration: none">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="kodok">
+                                @if ($berita->gambar)
+                                    <img src="{{ asset('storage/' . $berita->gambar) }}" class="d-block w-100 bt-img" alt="...">
+                                @else
+                                    <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="">
+                                @endif
                                 <div class="berita-terkini-overlay">
                                     <p>{{ $arr[6] }}</p>
                                 </div>
@@ -289,7 +358,11 @@
                         </div>
                         <div class="col">
                             <a href="/berita/{{ $arr2[8] }}" style="text-decoration: none">
-                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="kodok">
+                                @if ($berita->gambar)
+                                    <img src="{{ asset('storage/' . $berita->gambar) }}" class="d-block w-100 bt-img" alt="...">
+                                @else
+                                    <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="">
+                                @endif
                                 <div class="berita-terkini-overlay">
                                     <p>{{ $arr[8] }}</p>
                                 </div>
@@ -393,7 +466,11 @@
             <div class="col mb-3">
                 <div class="ukb-card">
                     <a href="/berita/{{ $berita->slug }}" style="text-decoration: none; color:black;">
-                        <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="card-img" alt="...">
+                        @if ($berita->gambar)
+                            <img src="{{ asset('storage/' . $berita->gambar) }}" class="d-block w-100 bt-img" class="card-img" alt="...">
+                        @else
+                            <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="card-img" alt="">
+                        @endif
                         <p class="card-text p-1">{{ $berita->judul }}</p>
                     </a>
                 </div>

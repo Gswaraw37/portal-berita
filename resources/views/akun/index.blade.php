@@ -133,7 +133,7 @@
                             Hapus Tulisan
                         </button>
                     </form>
-                    <a href="/berita/{{ $berita->slug }}"><button class="baca-tulisan px-4 py-1 ms-4">Baca Tulisan</button></a>
+                    <a href="/tulisan/{{ $berita->slug }}"><button class="baca-tulisan px-4 py-1 ms-4">Baca Tulisan</button></a>
                 </div>
             </div>
             @endforeach

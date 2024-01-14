@@ -76,7 +76,11 @@
     <div class="container-fluid mt-4 single-news">
         <div class="row">
             <div class="col-lg-8 col-md-8 col-sm-8">
-                <img class="img-fluid w-100 rounded-4 mb-4" src="https://source.unsplash.com/1417x745?{{ $beritas->kategori->kategori }}" style="object-fit: cover;">
+                @if ($beritas->gambar)
+                    <img class="img-fluid w-100 rounded-4 mb-4" src="{{ asset('storage/' . $beritas->gambar) }}" style="object-fit: cover;">
+                @else
+                    <img class="img-fluid w-100 rounded-4 mb-4" src="https://source.unsplash.com/1417x745?{{ $beritas->kategori->kategori }}" style="object-fit: cover;">
+                @endif
                 <p>{{ $beritas->isi }}</p>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4">
@@ -118,7 +122,11 @@
                 <div class="col mb-3">
                     <div class="ukb-card">
                         <a href="/berita/{{ $berita->slug }}" style="text-decoration: none; color:black;">
-                            <img src="https://source.unsplash.com/1417x745?{{ $beritas->kategori->kategori }}" class="card-img" alt="...">
+                            @if ($berita->gambar)
+                                <img src="{{ asset('storage/' . $berita->gambar) }}" class="card-img" alt="...">
+                            @else
+                                <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="card-img" alt="...">
+                            @endif
                             <p class="card-text p-1">{{ $berita->judul }}</p>
                         </a>
                     </div>
