@@ -95,7 +95,7 @@
         <div class="row">
             <div class="col-lg-8 col-md-8 col-sm-8">
                 @if ($beritas->gambar)
-                    <img class="img-fluid w-100 rounded-4 mb-4" src="{{ asset('storage/' . $beritas->gambar) }}" style="object-fit: cover;">
+                    <img class="img-fluid w-100 rounded-4 mb-4" src="{{ asset('storage/' . $beritas->gambar) }}" style="border-radius: 5px; width: 1471px; height: 745px; object-fit: cover;">
                 @else
                     <img class="img-fluid w-100 rounded-4 mb-4" src="https://source.unsplash.com/1417x745?{{ $beritas->kategori->kategori }}" style="object-fit: cover;">
                 @endif
@@ -120,7 +120,7 @@
                     <a href="/berita/{{ $berita->slug }}">
                         <div class="right-img">
                             @if ($berita->gambar)
-                                <img class="img-fluid w-100 rounded-4 mb-4" src="{{ asset('storage/' . $berita->gambar) }}">
+                                <img class="img-fluid w-100 rounded-4 mb-4" src="{{ asset('storage/' . $berita->gambar) }}" style="border-radius: 5px; width: 1471px; height: 745px;">
                             @else
                                 <img class="img-fluid w-100 rounded-4 mb-4" src="https://source.unsplash.com/1417x745?{{ $beritas->kategori->kategori }}">
                             @endif
@@ -145,7 +145,7 @@
                     <div class="ukb-card">
                         <a href="/berita/{{ $berita->slug }}" style="text-decoration: none; color:black;">
                             @if ($berita->gambar)
-                                <img src="{{ asset('storage/' . $berita->gambar) }}" class="card-img" alt="...">
+                                <img src="{{ asset('storage/' . $berita->gambar) }}" style="border-radius: 5px; width: 1471px; height: 745px;" class="card-img" alt="...">
                             @else
                                 <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="card-img" alt="...">
                             @endif

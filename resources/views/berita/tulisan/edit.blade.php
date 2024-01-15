@@ -43,28 +43,25 @@
                 </svg>
             </a>
         </div>
-        <form method="post" action="/buat-tulisan/create" enctype="multipart/form-data">
+        <form method="post" action="/edit-tulisan/{{ $beritas->id }}" enctype="multipart/form-data">
+            @method('put')
             @csrf
             <div class="judul mb-3 mx-4">
                 <label for="judul" class="m-0 form-label">Judul</label>
-                <input class="col-12 form-control" type="text" name="judul" id="judul" placeholder="Masukkan judul tulisan Anda">
+                <input class="col-12 form-control" type="text" name="judul" id="judul" placeholder="Masukkan judul tulisan Anda" value="{{ $beritas->judul }}">
             </div>
             <div class="judul mb-3 mx-4">
                 <label for="slug" class="m-0 form-label">Slug</label>
-                <input class="col-12 form-control" type="text" name="slug" id="slug" placeholder="Slug akan digenerate.." readonly>
+                <input class="col-12 form-control" type="text" name="slug" id="slug" placeholder="Slug akan digenerate.." readonly value="{{ $beritas->slug }}">
             </div>
             <div class="judul mb-3 mx-4">
                 <label for="user_id" class="m-0 form-label">Penulis: {{ auth()->user()->username }}</label>
                 <input class="col-12 form-control" type="text" name="user_id" id="user_id" value="{{ auth()->user()->id }}" readonly>
             </div>
-            <div class="judul mb-3 mx-4">
-                <label for="gambar" class="m-0 form-label">Gambar Berita</label>
-                <input class="col-12 form-control" type="file" name="gambar" id="gambar">
-            </div>
             <div class="kategori mb-3 mx-4">
                 <label for="kategori_id" class="m-0 form-label">Kategori</label>
                 <select class="col-12 form-select" name="kategori_id" id="kategori_id">
-                    <option class="kategori-placeholder">Pilih kategori tulisan Anda</option>
+                    <option class="kategori-placeholder">{{ $beritas->kategori->kategori }}</option>
                     <option value="1">Ekonomi</option>
                     <option value="2">Teknologi</option>
                     <option value="3">Hukum</option>
@@ -74,10 +71,10 @@
             </div>
             <div class="tulisan mb-3 mx-4">
                 <label for="isi" class="m-0 form-label">Tulisan</label>
-                <input id="isi" type="hidden" name="isi">
+                <input id="isi" type="hidden" name="isi" value="{{ $beritas->isi }}">
                 <trix-editor input="isi" placeholder="Ketik tulisan Anda di sini"></trix-editor>
             </div>
-            <button type="button" class="unggah-btn px-3" style="margin: 0 auto; display:flex; margin-bottom:20px" name="submit" data-bs-toggle="modal" data-bs-target="#confirm-unggahtulis-modal">Unggah</button>
+            <button type="button" class="unggah-btn px-3" style="margin: 0 auto; display:flex; margin-bottom:20px" name="submit" data-bs-toggle="modal" data-bs-target="#confirm-unggahtulis-modal">Edit</button>
             <div class="modal" id="confirm-unggahtulis-modal">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
@@ -97,12 +94,12 @@
                                 </svg></button>
                         </div>
                         <div class="modal-body modal-bg1">
-                            <h5>Anda Yakin Ingin Mengunggah Tulisan  ini?</h5>
+                            <h5>Anda Yakin Ingin Mengedit Tulisan  ini?</h5>
                         </div>
                         <div class="modalFooter text-center modal-bg1">
                             <div class="mb-3">
                                 <button type="button" class="button1" data-bs-dismiss="modal">Batal</button>
-                                <button type="submit" name="submit" class="button2"><a>Unggah</a></button>
+                                <button type="submit" name="submit" class="button2"><a>Edit</a></button>
                             </div>
                         </div>
                     </div>

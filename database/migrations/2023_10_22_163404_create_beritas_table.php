@@ -17,11 +17,11 @@ return new class extends Migration
             $table->string('judul');
             $table->string('rangkuman');
             $table->text('isi');
-            $table->unsignedBigInteger('penulis_id');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
 
             $table->foreign('kategori_id')->references('id')->on('kategoris')->onDelete('restrict');
-            $table->foreign('penulis_id')->references('id')->on('users')->onDelete('restrict');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict');
         });
     }
 

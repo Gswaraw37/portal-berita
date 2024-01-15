@@ -33,6 +33,8 @@ Route::delete('/berita/{id}', [ProfileController::class, 'destroy']);
 
 Route::get('/buat-tulisan', [TulisanController::class, 'create']);
 Route::post('/buat-tulisan/create', [TulisanController::class, 'store']);
+Route::get('/edit-tulisan/update/{id}', [TulisanController::class, 'edit']);
+Route::put('/edit-tulisan/{id}', [TulisanController::class, 'update']);
 Route::get('/buat-tulisan/checkSlug', [TulisanController::class, 'checkSlug']);
 Route::get('/tulisan/{slug}', [TulisanController::class, 'show']);
 

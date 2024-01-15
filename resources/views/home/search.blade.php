@@ -98,7 +98,7 @@
                     <div class="ukb-card">
                         <a href="/berita/{{ $berita->slug }}" style="text-decoration: none; color:black;">
                             @if ($berita->gambar)
-                                <img src="{{ asset('storage/' . $berita->gambar) }}" class="d-block w-100 bt-img" class="card-img" alt="...">
+                                <img src="{{ asset('storage/' . $berita->gambar) }}" style="border-radius: 5px; width: 1471px; height: 745px;" class="d-block w-100 bt-img card-img" alt="...">
                             @else
                                 <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="card-img" alt="...">
                             @endif

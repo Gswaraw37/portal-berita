@@ -170,7 +170,7 @@
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[0] }}" style="text-decoration: none; display:flex; color:black">
                                 @if ($berita->gambar)
-                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="...">
+                                    <img src="{{ asset('storage/' . $berita->gambar) }}" style="border-radius: 5px; width: 1471px; height: 745px;" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
                                 @endif
@@ -180,7 +180,7 @@
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[1] }}" style="text-decoration: none; display:flex; color:black">
                                 @if ($berita->gambar)
-                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="...">
+                                    <img src="{{ asset('storage/' . $berita->gambar) }}" style="border-radius: 5px; width: 1471px; height: 745px;" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
                                 @endif
@@ -190,7 +190,7 @@
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[6] }}" style="text-decoration: none; display:flex; color:black">
                                 @if ($berita->gambar)
-                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="...">
+                                    <img src="{{ asset('storage/' . $berita->gambar) }}" style="border-radius: 5px; width: 1471px; height: 745px;" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
                                 @endif
@@ -200,7 +200,7 @@
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[3] }}" style="text-decoration: none; display:flex; color:black">
                                 @if ($berita->gambar)
-                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="...">
+                                    <img src="{{ asset('storage/' . $berita->gambar) }}" style="border-radius: 5px; width: 1471px; height: 745px;" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
                                 @endif
@@ -210,7 +210,7 @@
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[7] }}" style="text-decoration: none; display:flex; color:black">
                                 @if ($berita->gambar)
-                                    <img src="{{ asset('storage/' . $berita->gambar) }}" alt="...">
+                                    <img src="{{ asset('storage/' . $berita->gambar) }}" style="border-radius: 5px; width: 1471px; height: 745px;" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
                                 @endif
@@ -231,7 +231,7 @@
                 <div class="ukb-card">
                     <a href="/berita/{{ $berita->slug }}" style="text-decoration: none; color:black;">
                         @if ($berita->gambar)
-                            <img src="{{ asset('storage/' . $berita->gambar) }}" class="card-img" alt="...">
+                            <img src="{{ asset('storage/' . $berita->gambar) }}" style="border-radius: 5px; width: 1471px; height: 745px;" class="card-img" alt="...">
                         @else
                             <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="card-img" alt="...">
                         @endif
@@ -250,7 +250,7 @@
                 <div class="category-news-list">
                     <a href="/berita/{{ $berita->slug }}" style="text-decoration: none; color:black; display:flex">
                         @if ($berita->gambar)
-                            <img src="{{ asset('storage/' . $berita->gambar) }}" alt="...">
+                            <img src="{{ asset('storage/' . $berita->gambar) }}" style="border-radius: 5px; width: 1471px; height: 745px;" alt="...">
                         @else
                             <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
                         @endif

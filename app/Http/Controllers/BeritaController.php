@@ -6,6 +6,7 @@ use App\Models\Berita;
 use App\Models\Kategori;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class BeritaController extends Controller
@@ -20,6 +21,7 @@ class BeritaController extends Controller
 
         return view('home.search', [
             'kategoris' => Kategori::all(),
+            'users' => Auth::user(),
             'beritas' => $berita->get()
         ]);
     }

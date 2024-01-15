@@ -29,6 +29,31 @@ class TulisanController extends Controller
         ]);
     }
 
+    public function edit($id)
+    {
+        $berita = Berita::with('kategori')->findOrFail($id);
+        return view('berita.tulisan.edit', [
+            'beritas' => $berita,
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'judul' => 'required|max:255',
+            'slug' => 'required',
+            'kategori_id' => 'required|exists:kategoris,id',
+            'isi' => 'required'
+        ]);
+        $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['rangkuman'] = Str::limit(strip_tags($request->isi), 100);
+
+        $berita = Berita::findOrFail($id);
+        
+        $berita->update($validatedData);
+        return redirect('/');
+    }
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([

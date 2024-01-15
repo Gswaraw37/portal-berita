@@ -109,7 +109,7 @@
                         <div class="carousel-item active">
                             <a href="/berita/{{ $beritaa->slug }}" style="text-decoration: none">
                                 @if ($beritaa->gambar)
-                                    <img src="{{ asset('storage/' . $beritaa->gambar) }}" class="d-block w-100 rounded-4" alt="...">
+                                    <img src="{{ asset('storage/' . $beritaa->gambar) }}" style="border-radius: 5px; width: 1471px; height: 745px;" class="d-block w-100 rounded-4" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $beritaa->kategori->kategori }}" class="d-block w-100 rounded-4" alt="...">
                                 @endif
@@ -173,7 +173,7 @@
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[0] }}" style="text-decoration: none; display:flex; color:black">
                                 @if ($arr3[0])
-                                    <img src="{{ asset('storage/' . $arr3[0]) }}" alt="...">
+                                    <img src="{{ asset('storage/' . $arr3[0]) }}" style="border-radius: 5px; width: 1471px; height: 745px;" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
                                 @endif
@@ -183,7 +183,7 @@
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[3] }}" style="text-decoration: none; display:flex; color:black">
                                 @if ($arr3[3])
-                                    <img src="{{ asset('storage/' . $arr3[3]) }}" alt="...">
+                                    <img src="{{ asset('storage/' . $arr3[3]) }}" style="border-radius: 5px; width: 1471px; height: 745px;" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
                                 @endif
@@ -193,7 +193,7 @@
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[5] }}" style="text-decoration: none; display:flex; color:black">
                                 @if ($arr3[5])
-                                    <img src="{{ asset('storage/' . $arr3[5]) }}" alt="...">
+                                    <img src="{{ asset('storage/' . $arr3[5]) }}" style="border-radius: 5px; width: 1471px; height: 745px;" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
                                 @endif
@@ -203,7 +203,7 @@
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[37] }}" style="text-decoration: none; display:flex; color:black">
                                 @if ($arr3[37])
-                                    <img src="{{ asset('storage/' . $arr3[37]) }}" alt="...">
+                                    <img src="{{ asset('storage/' . $arr3[37]) }}" style="border-radius: 5px; width: 1471px; height: 745px;" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
                                 @endif
@@ -213,7 +213,7 @@
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[9] }}" style="text-decoration: none; display:flex; color:black">
                                 @if ($arr3[9])
-                                    <img src="{{ asset('storage/' . $arr3[9]) }}" alt="...">
+                                    <img src="{{ asset('storage/' . $arr3[9]) }}" style="border-radius: 5px; width: 1471px; height: 745px;" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
                                 @endif
@@ -223,7 +223,7 @@
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[11] }}" style="text-decoration: none; display:flex; color:black">
                                 @if ($arr3[11])
-                                    <img src="{{ asset('storage/' . $arr3[11]) }}" alt="...">
+                                    <img src="{{ asset('storage/' . $arr3[11]) }}" style="border-radius: 5px; width: 1471px; height: 745px;" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
                                 @endif
@@ -233,7 +233,7 @@
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[13] }}" style="text-decoration: none; display:flex; color:black">
                                 @if ($arr3[13])
-                                    <img src="{{ asset('storage/' . $arr3[13]) }}" alt="...">
+                                    <img src="{{ asset('storage/' . $arr3[13]) }}" style="border-radius: 5px; width: 1471px; height: 745px;" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
                                 @endif
@@ -243,7 +243,7 @@
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[17] }}" style="text-decoration: none; display:flex; color:black">
                                 @if ($arr3[17])
-                                    <img src="{{ asset('storage/' . $arr3[17]) }}" alt="...">
+                                    <img src="{{ asset('storage/' . $arr3[17]) }}" style="border-radius: 5px; width: 1471px; height: 745px;" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
                                 @endif
@@ -253,7 +253,7 @@
                         <div class="berita-populer-list">
                             <a href="/berita/{{ $arr2[35] }}" style="text-decoration: none; display:flex; color:black">
                                 @if ($arr3[35])
-                                    <img src="{{ asset('storage/' . $arr3[35]) }}" alt="...">
+                                    <img src="{{ asset('storage/' . $arr3[35]) }}" style="border-radius: 5px; width: 1471px; height: 745px;" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" alt="">
                                 @endif
@@ -292,7 +292,7 @@
                         <div class="col">
                             <a href="/berita/{{ $arr2[0] }}" style="text-decoration: none">
                                 @if ($arr3[0])
-                                    <img src="{{ asset('storage/' . $arr3[0]) }}" class="d-block w-100 bt-img" alt="...">
+                                    <img src="{{ asset('storage/' . $arr3[0]) }}" style="border-radius: 5px; width: 1471px; height: 745px;" class="d-block w-100 bt-img" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="">
                                 @endif
@@ -304,7 +304,7 @@
                         <div class="col">
                             <a href="/berita/{{ $arr2[1] }}" style="text-decoration: none">
                                 @if ($arr3[1])
-                                    <img src="{{ asset('storage/' . $arr3[1]) }}" class="d-block w-100 bt-img" alt="...">
+                                    <img src="{{ asset('storage/' . $arr3[1]) }}" style="border-radius: 5px; width: 1471px; height: 745px;" class="d-block w-100 bt-img" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="">
                                 @endif
@@ -316,7 +316,7 @@
                         <div class="col">
                             <a href="/berita/{{ $arr2[2] }}" style="text-decoration: none">
                                 @if ($arr3[2])
-                                    <img src="{{ asset('storage/' . $arr3[2]) }}" class="d-block w-100 bt-img" alt="...">
+                                    <img src="{{ asset('storage/' . $arr3[2]) }}" style="border-radius: 5px; width: 1471px; height: 745px;" class="d-block w-100 bt-img" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="">
                                 @endif
@@ -328,7 +328,7 @@
                         <div class="col">
                             <a href="/berita/{{ $arr2[3] }}" style="text-decoration: none">
                                 @if ($arr3[3])
-                                    <img src="{{ asset('storage/' . $arr3[3]) }}" class="d-block w-100 bt-img" alt="...">
+                                    <img src="{{ asset('storage/' . $arr3[3]) }}" style="border-radius: 5px; width: 1471px; height: 745px;" class="d-block w-100 bt-img" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="">
                                 @endif
@@ -344,7 +344,7 @@
                         <div class="col">
                             <a href="/berita/{{ $arr2[4] }}" style="text-decoration: none">
                                 @if ($arr3[4])
-                                    <img src="{{ asset('storage/' . $arr3[4]) }}" class="d-block w-100 bt-img" alt="...">
+                                    <img src="{{ asset('storage/' . $arr3[4]) }}" style="border-radius: 5px; width: 1471px; height: 745px;" class="d-block w-100 bt-img" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="">
                                 @endif
@@ -356,7 +356,7 @@
                         <div class="col">
                             <a href="/berita/{{ $arr2[5] }}" style="text-decoration: none">
                                 @if ($arr3[5])
-                                    <img src="{{ asset('storage/' . $arr3[5]) }}" class="d-block w-100 bt-img" alt="...">
+                                    <img src="{{ asset('storage/' . $arr3[5]) }}" style="border-radius: 5px; width: 1471px; height: 745px;" class="d-block w-100 bt-img" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="">
                                 @endif
@@ -368,7 +368,7 @@
                         <div class="col">
                             <a href="/berita/{{ $arr2[6] }}" style="text-decoration: none">
                                 @if ($arr3[6])
-                                    <img src="{{ asset('storage/' . $arr3[6]) }}" class="d-block w-100 bt-img" alt="...">
+                                    <img src="{{ asset('storage/' . $arr3[6]) }}" style="border-radius: 5px; width: 1471px; height: 745px;" class="d-block w-100 bt-img" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="">
                                 @endif
@@ -380,7 +380,7 @@
                         <div class="col">
                             <a href="/berita/{{ $arr2[8] }}" style="text-decoration: none">
                                 @if ($arr3[8])
-                                    <img src="{{ asset('storage/' . $arr3[8]) }}" class="d-block w-100 bt-img" alt="...">
+                                    <img src="{{ asset('storage/' . $arr3[8]) }}" style="border-radius: 5px; width: 1471px; height: 745px;" class="d-block w-100 bt-img" alt="...">
                                 @else
                                     <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="d-block w-100 bt-img" alt="">
                                 @endif
@@ -498,7 +498,7 @@
                 <div class="ukb-card">
                     <a href="/berita/{{ $berita->slug }}" style="text-decoration: none; color:black;">
                         @if ($berita->gambar)
-                            <img src="{{ asset('storage/' . $berita->gambar) }}" class="d-block w-100 bt-img" class="card-img" alt="...">
+                            <img src="{{ asset('storage/' . $berita->gambar) }}" style="border-radius: 5px; width: 1471px; height: 745px;" class="d-block w-100 bt-img" class="card-img" alt="...">
                         @else
                             <img src="https://source.unsplash.com/1417x745?{{ $berita->kategori->kategori }}" class="card-img" alt="">
                         @endif
