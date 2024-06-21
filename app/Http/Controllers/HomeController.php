@@ -5,50 +5,54 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Berita;
 use App\Models\Kategori;
-use Illuminate\Http\Request;
-use App\Http\Resources\HomeResource;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Resources\HomeDetailResource;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $ekonomi = Berita::where('kategori_id', 1)->count();
-        $teknologi = Berita::where('kategori_id', 2)->count();
-        $hukum = Berita::where('kategori_id', 3)->count();
-        $sosial = Berita::where('kategori_id', 4)->count();
-        $kesehatan = Berita::where('kategori_id', 5)->count();
-        $berita1 = Berita::where('user_id', 2)->count();
-        $berita2 = Berita::where('user_id', 4)->count();
+        $topAuthors = User::select('users.id', 'users.username', DB::raw('COUNT(beritas.id) as jumlah_berita'))
+                    ->leftJoin('beritas', 'users.id', '=', 'beritas.user_id')
+                    ->where('users.role_id', '<>', 1)
+                    ->groupBy('users.id', 'users.username')
+                    ->orderByDesc('jumlah_berita')
+                    ->limit(5)
+                    ->get();
+        $topCategories = Kategori::select('kategoris.id', 'kategoris.kategori', DB::raw('COUNT(beritas.id) as jumlah_berita'))
+                    ->leftJoin('beritas', 'kategoris.id', '=', 'beritas.kategori_id')
+                    ->groupBy('kategoris.id', 'kategoris.kategori')
+                    ->orderByDesc('jumlah_berita')
+                    ->limit(5)
+                    ->get();
+        $latestBeritas = Berita::inRandomOrder()->paginate(6);
+        $carouselBeritas = Berita::latest()->take(3)->get();
+        $randomBeritas = Berita::inRandomOrder()->take(5)->get();
+
         return view('home.index', [
             'kategoris' => Kategori::all(),
             'users' => Auth::user(),
-            'beritas' => Berita::latest()->paginate(6),
-            'carousels' => Berita::latest()->paginate(3),
             'carousels2' => Berita::latest()->get(),
-            'beritas2' => Berita::all(),
             'user' => User::all(),
-            'ekonomi' => $ekonomi,
-            'teknologi' => $teknologi,
-            'hukum' => $hukum,
-            'sosial' => $sosial,
-            'kesehatan' => $kesehatan,
-            'berita1' => $berita1,
-            'berita2' => $berita2,
+            'beritas2' => $randomBeritas,
+            'topAuthors' => $topAuthors,
+            'topCategories' => $topCategories,
+            'latestBeritas' => $latestBeritas,
+            'carouselBeritas' => $carouselBeritas
         ]);
     }
 
     public function show($judul)
     {
         $berita = Berita::with('user')->where('slug', $judul)->first();
+        
         return view('berita.index', [
             'beritas' => $berita,
             'users' => Auth::user(),
             'kategoris' => Kategori::all(),
             'carousels' => Berita::latest()->paginate(7),
             'beritas3' => Berita::with('user')->latest()->first(),
-            'beritas2' => Berita::take(6)->get()
+            'beritas2' => Berita::inRandomOrder()->take(6)->get()
         ]);
     }
 }

@@ -32,6 +32,7 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
     <div class="buat-tulisan">
         <div class="buat-tulisan-nav py-2 px-3 mb-4">
             <a href="/">
@@ -58,15 +59,17 @@
                 <label for="user_id" class="m-0 form-label">Penulis: {{ auth()->user()->username }}</label>
                 <input class="col-12 form-control" type="text" name="user_id" id="user_id" value="{{ auth()->user()->id }}" readonly>
             </div>
+            <div class="judul mb-3 mx-4">
+                <label for="gambar" class="m-0 form-label">Gambar Berita</label>
+                <input class="col-12 form-control" type="file" name="gambar" id="gambar">
+            </div>
             <div class="kategori mb-3 mx-4">
                 <label for="kategori_id" class="m-0 form-label">Kategori</label>
                 <select class="col-12 form-select" name="kategori_id" id="kategori_id">
                     <option class="kategori-placeholder">{{ $beritas->kategori->kategori }}</option>
-                    <option value="1">Ekonomi</option>
-                    <option value="2">Teknologi</option>
-                    <option value="3">Hukum</option>
-                    <option value="4">Sosial</option>
-                    <option value="5">Kesehatan</option>
+                    @foreach ($kategoris as $k)
+                        <option value="{{ $k->id }}">{{ $k->kategori }}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="tulisan mb-3 mx-4">

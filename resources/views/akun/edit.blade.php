@@ -24,6 +24,7 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
     <a href="/profile/{{ $users->username }}"><svg class="back-button mt-0 m-3" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
             viewBox="0 0 40 40" fill="none">
             <path
@@ -37,11 +38,14 @@
     </a>
 
     <div class="edit-profil mt-4">
-        <form action="/profile/{{$users->id}}" method="post">
+        <form action="/profile/{{$users->id}}" method="post" enctype="multipart/form-data">
             @method('put')
             @csrf
             <h6 class="mb-3">Edit Profil</h6>
             <img src="{{ asset('images/flynn.png') }}" alt="" class="mb-2 img-fluid profile-img">
+            <div class="judul mb-3 mx-4">
+                <input class="col-12 form-control" type="file" name="gambar" id="gambar">
+            </div>
             <div class="mb-2 input-nama">
                 <span>Username</span>
                 <input type="text" id="username" name="username" value="{{ $users->username }}">
@@ -58,7 +62,7 @@
             </div>
             <div class="mb-3 input-kata-sandi">
                 <span>Kata Sandi</span>
-                <input type="password" id="password" name="password" value="{{ $users->password }}">
+                <input type="password" id="password" name="password">
             </div>
             <button class="mb-5 simpan-btn" type="button" data-bs-toggle="modal" data-bs-target="#confirm-editprofil-modal"><a>Simpan</a></button><br>
             <div class="modal" id="confirm-editprofil-modal">

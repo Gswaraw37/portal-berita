@@ -26,6 +26,7 @@ Route::get('/search', [BeritaController::class, 'index']);
 
 Route::get('/kategori/{kategori}', [KategoriController::class, 'show']);
 
+Route::get('/author/{username}', [ProfileController::class, 'author'])->name('author.profile');
 Route::get('/profile/{username}', [ProfileController::class, 'show']);
 Route::get('/profile/edit/{username}', [ProfileController::class, 'edit']);
 Route::put('/profile/{id}', [ProfileController::class, 'update']);

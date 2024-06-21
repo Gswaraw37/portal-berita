@@ -25,6 +25,7 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
     <a href="/profile/{{ $users->username }}">
         <svg class="mb-3 m-2" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 40 40" fill="none">
             <path d="M31.6668 20H8.3335" stroke="#383961" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />

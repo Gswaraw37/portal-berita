@@ -23,7 +23,7 @@ class AuthController extends Controller
         $data = $request->except('confirm-password', 'password');
         $data['password'] = Hash::make($validate['password']);
         User::create($data);
-        return redirect('/login');
+        return redirect('/login')->with('success', 'Akun Berhasil Dibuat');
     }
     
     public function login()
@@ -41,13 +41,13 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
  
-            return redirect()->intended('/');
+            return redirect()->intended('/')->with('success', 'Selamat Datang ' . Auth::user()->username);
         }
  
         Session::flash('status', 'failed');
         Session::flash('message', 'Login Gagal!');
 
-        return redirect('/login');
+        return redirect('/login')->with('error', 'Email/Password Salah!');
     }
 
     public function logout(Request $request)
@@ -58,6 +58,6 @@ class AuthController extends Controller
     
         $request->session()->regenerateToken();
     
-        return redirect('/');
+        return redirect('/')->with('success', 'Terima Kasih Telah Menggunakan BRINI :D');
     }
 }

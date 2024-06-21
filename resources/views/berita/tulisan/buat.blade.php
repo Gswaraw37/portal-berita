@@ -32,6 +32,7 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
     <div class="buat-tulisan">
         <div class="buat-tulisan-nav py-2 px-3 mb-4">
             <a href="/">
@@ -65,11 +66,9 @@
                 <label for="kategori_id" class="m-0 form-label">Kategori</label>
                 <select class="col-12 form-select" name="kategori_id" id="kategori_id">
                     <option class="kategori-placeholder">Pilih kategori tulisan Anda</option>
-                    <option value="1">Ekonomi</option>
-                    <option value="2">Teknologi</option>
-                    <option value="3">Hukum</option>
-                    <option value="4">Sosial</option>
-                    <option value="5">Kesehatan</option>
+                    @foreach ($kategoris as $k)
+                        <option value="{{ $k->id }}">{{ $k->kategori }}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="tulisan mb-3 mx-4">
