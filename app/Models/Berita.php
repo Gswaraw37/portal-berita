@@ -33,4 +33,9 @@ class Berita extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function laporanBerita()
+    {
+        return $this->hasMany(LaporanBerita::class);
+    }
 }

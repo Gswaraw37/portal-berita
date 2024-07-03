@@ -42,7 +42,11 @@
             @method('put')
             @csrf
             <h6 class="mb-3">Edit Profil</h6>
-            <img src="{{ asset('images/flynn.png') }}" alt="" class="mb-2 img-fluid profile-img">
+            @if ($users->gambar)
+                <img src="{{ asset('storage/' . $users->gambar) }}" alt="" class="mb-2 img-fluid profile-img">
+            @else
+                <img src="{{ asset('images/flynn.png') }}" alt="" class="mb-2 img-fluid profile-img">
+            @endif
             <div class="judul mb-3 mx-4">
                 <input class="col-12 form-control" type="file" name="gambar" id="gambar">
             </div>

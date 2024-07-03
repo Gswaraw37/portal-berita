@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('role_id')->default(2);
             $table->string('username', 20);
             $table->string('password');
+            $table->string('gambar')->nullable();
             $table->rememberToken();
             $table->timestamps();
 

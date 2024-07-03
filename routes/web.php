@@ -38,6 +38,9 @@ Route::get('/edit-tulisan/update/{id}', [TulisanController::class, 'edit']);
 Route::put('/edit-tulisan/{id}', [TulisanController::class, 'update']);
 Route::get('/buat-tulisan/checkSlug', [TulisanController::class, 'checkSlug']);
 Route::get('/tulisan/{slug}', [TulisanController::class, 'show']);
+Route::get('/admin/laporan-berita', [TulisanController::class, 'indexLaporan'])->name('admin.laporan.index')->middleware('only.admin');
+Route::post('/lapor-berita', [TulisanController::class, 'laporkanBerita'])->name('lapor.berita');
+Route::delete('/admin/hapus-berita/{id}', [TulisanController::class, 'hapusBerita'])->name('admin.hapus.berita');
 
 Route::get('/login', [AuthController::class, 'login'])->middleware('guest');
 Route::post('/login', [AuthController::class, 'authenticate']);

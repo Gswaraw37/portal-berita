@@ -46,11 +46,16 @@
                 </form>
             </div>
             <div class="nav-btn">
-                @if (Auth::user('guest'))
+                @auth
                     <button class="buat-tulisan mx-1 ms-4"><a style="text-decoration: none; color: #031927" href="/buat-tulisan">Buat Tulisan</a></button>
-                    <button type="button" style="width:50px;" class="masuk mx-1 me-4 btn btn-danger dropdown-toggle dropdown-toggle-split fas fa-circle-user" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                    <button type="button" style="width:100px;" class="masuk mx-1 me-2 btn btn-danger dropdown-toggle dropdown-toggle-split fa" data-bs-toggle="dropdown" aria-expanded="false">
+                        <p style="text-decoration: none; color: #031927">{{ $users->username }}</p>
+                    </button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="/profile/{{ $users->username }}">Profile</a></li>
+                        @if ($users->role_id == 1)
+                            <li><a class="dropdown-item" href="/admin/laporan-berita">Lihat Laporan</a></li>
+                        @endif
                         <li><hr class="dropdown-divider"></li>
                         <li><button class="masuk mx-1"><a style="text-decoration: none; color: #031927" href="/logout">Keluar</a></button></li>
                     </ul>
@@ -75,7 +80,7 @@
                             </div>
                         </div>
                     </div>
-                @endif
+                @endauth
             </div>
         </div>
         <!-- TOPBAR END -->
@@ -98,8 +103,8 @@
             <div class="col-8">
                 <div class="profil-saya-left">
                     <div class="container">
-                        @if ($users->gambar)
-                            <img src="{{ asset('storage/' . $users->gambar) }}" alt="" class="img-fluid">
+                        @if ($author->gambar)
+                            <img src="{{ asset('storage/' . $author->gambar) }}" alt="" class="img-fluid">
                         @else
                             <img src="{{ asset('images/flynn.png') }}" alt="" class="img-fluid">
                         @endif
@@ -146,13 +151,46 @@
             <div class="tulisan-saya-list mb-4 text-start mx-5 px-4 py-1">
                 <p class="m-0 text-end"><small>{{ \Carbon\Carbon::parse($berita->created_at)->isoFormat('D MMMM Y') }}</small></p>
                 <h6 class="m-0">{{ $berita->judul }}</h6>
-                <p>{{ Str::limit($berita->isi, 200, '...') }}</p>
-                <div class="tulisan-saya-btn text-end">
-                    <a href="/tulisan/{{ $berita->slug }}"><button class="baca-tulisan px-4 py-1 ms-4">Baca Tulisan</button></a>
-                </div>
+                <p>{{ Str::limit(strip_tags($berita->isi), 200, '...') }}</p>
+                @if (Auth::check() && (Auth::user()->id == $berita->user->id || Auth::user()->role_id == 1))
+                    <div class="tulisan-saya-btn text-end">
+                        <form action="/berita/{{ $berita->id }}" class="d-inline" method="post">
+                        @csrf
+                        @method('DELETE')
+                            <button class="hapus-tulisan px-4 py-1" type="button" data-bs-toggle="modal" data-bs-target="#confirm-hapustulis-modal">
+                                <svg class="me-1" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 25 25" fill="none">
+                                    <path
+                                        d="M7.29151 21.875C6.71859 21.875 6.22797 21.6708 5.81963 21.2625C5.4113 20.8542 5.20748 20.3639 5.20817 19.7917V6.25C4.91304 6.25 4.66547 6.15 4.46547 5.95C4.26547 5.75 4.16581 5.50278 4.16651 5.20834C4.16651 4.9132 4.26651 4.66563 4.46651 4.46563C4.66651 4.26563 4.91373 4.16598 5.20817 4.16667H9.37484C9.37484 3.87153 9.47484 3.62396 9.67484 3.42396C9.87484 3.22396 10.1221 3.12431 10.4165 3.125H14.5832C14.8783 3.125 15.1259 3.225 15.3259 3.425C15.5259 3.625 15.6255 3.87223 15.6248 4.16667H19.7915C20.0866 4.16667 20.3342 4.26667 20.5342 4.46667C20.7342 4.66667 20.8339 4.91389 20.8332 5.20834C20.8332 5.50348 20.7332 5.75105 20.5332 5.95105C20.3332 6.15105 20.086 6.2507 19.7915 6.25V19.7917C19.7915 20.3646 19.5873 20.8552 19.179 21.2635C18.7707 21.6719 18.2804 21.8757 17.7082 21.875H7.29151ZM7.29151 6.25V19.7917H17.7082V6.25H7.29151ZM9.37484 16.6667C9.37484 16.9618 9.47484 17.2094 9.67484 17.4094C9.87484 17.6094 10.1221 17.709 10.4165 17.7083C10.7116 17.7083 10.9592 17.6083 11.1592 17.4083C11.3592 17.2083 11.4589 16.9611 11.4582 16.6667V9.375C11.4582 9.07986 11.3582 8.83229 11.1582 8.63229C10.9582 8.43229 10.711 8.33264 10.4165 8.33334C10.1214 8.33334 9.8738 8.43334 9.6738 8.63334C9.4738 8.83334 9.37415 9.08056 9.37484 9.375V16.6667ZM13.5415 16.6667C13.5415 16.9618 13.6415 17.2094 13.8415 17.4094C14.0415 17.6094 14.2887 17.709 14.5832 17.7083C14.8783 17.7083 15.1259 17.6083 15.3259 17.4083C15.5259 17.2083 15.6255 16.9611 15.6248 16.6667V9.375C15.6248 9.07986 15.5248 8.83229 15.3248 8.63229C15.1248 8.43229 14.8776 8.33264 14.5832 8.33334C14.288 8.33334 14.0405 8.43334 13.8405 8.63334C13.6405 8.83334 13.5408 9.08056 13.5415 9.375V16.6667Z" fill="#383961"/>
+                                </svg>
+                                Hapus Tulisan
+                            </button>
+                            <div class="modal" id="confirm-hapustulis-modal">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modalFooter text-center modal-bg1 pt-5">
+                                            <p>Anda Yakin Ingin Menghapus Tulisan  ini?</p>
+                                            <div class="mb-3 pt-3">
+                                                <button type="button" class="button1" data-bs-dismiss="modal">Batal</button>
+                                                <button type="submit" name="submit" class="button2"><a>Hapus</a></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endif
+                        </form>
+                        @if (Auth::user() && Auth::user()->owns($berita))
+                            <a href="/tulisan/{{ $berita->slug }}"><button class="baca-tulisan px-4 py-1 ms-4">Baca Tulisan</button></a>
+                        @else
+                            <a href="/berita/{{ $berita->slug }}"><button class="baca-tulisan px-4 py-1 ms-4">Baca Tulisan</button></a>
+                    </div>
+                @endif
             </div>
             @endforeach
         @endif
+        <div style="margin: 0 auto">
+            {{ $beritas->links() }}
+        </div>
         <a href="/buat-tulisan"><button class="px-5 py-1 mb-5">Tambah Tulisan</button></a>
     </div>
 

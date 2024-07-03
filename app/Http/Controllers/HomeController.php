@@ -45,6 +45,7 @@ class HomeController extends Controller
     public function show($judul)
     {
         $berita = Berita::with('user')->where('slug', $judul)->first();
+        $penyebab = ['Spam atau penipuan', 'Konten yang mengandung SARA', 'Konten yang tidak benar atau menyesatkan', 'Pelanggaran hak cipta', 'Konten yang tidak pantas'];
         
         return view('berita.index', [
             'beritas' => $berita,
@@ -52,7 +53,8 @@ class HomeController extends Controller
             'kategoris' => Kategori::all(),
             'carousels' => Berita::latest()->paginate(7),
             'beritas3' => Berita::with('user')->latest()->first(),
-            'beritas2' => Berita::inRandomOrder()->take(6)->get()
+            'beritas2' => Berita::inRandomOrder()->take(6)->get(),
+            'penyebab' => $penyebab,
         ]);
     }
 }

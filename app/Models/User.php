@@ -29,6 +29,11 @@ class User extends Authenticatable
         'role_id'
     ];
 
+    public function owns($berita)
+    {
+        return $this->id === $berita->user_id;
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -62,5 +67,10 @@ class User extends Authenticatable
     public function kategori()
     {
         return $this->belongsTo(Kategori::class);
+    }
+
+    public function laporanBerita()
+    {
+        return $this->hasMany(LaporanBerita::class);
     }
 }

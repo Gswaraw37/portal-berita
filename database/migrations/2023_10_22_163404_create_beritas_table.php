@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('kategori_id');
             $table->string('judul');
+            $table->string('slug');
             $table->string('rangkuman');
+            $table->string('gambar')->nullable();
             $table->text('isi');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();

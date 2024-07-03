@@ -23,6 +23,8 @@ class AuthController extends Controller
         $data = $request->except('confirm-password', 'password');
         $data['password'] = Hash::make($validate['password']);
         User::create($data);
+
+        Session::flash('success_message', 'Akun berhasil terdaftar! Silakan masuk.');
         return redirect('/login')->with('success', 'Akun Berhasil Dibuat');
     }
     
@@ -40,6 +42,7 @@ class AuthController extends Controller
  
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
+            Session::flash('success_message', 'Login berhasil');
  
             return redirect()->intended('/')->with('success', 'Selamat Datang ' . Auth::user()->username);
         }

@@ -60,12 +60,16 @@ class ProfileController extends Controller
         $deletedBerita = Berita::findOrFail($id);
         $deletedBerita->delete();
 
-        return redirect('profile/'. auth()->user()->username)->with('success', 'Berita Berhasil Dihapus');
+        if (auth()->user()->role_id === 1) {
+            return redirect('author/'. $deletedBerita->user->username)->with('success', 'Berita Berhasil Dihapus');
+        } else {
+            return redirect('profile/'. auth()->user()->username)->with('success', 'Berita Berhasil Dihapus');
+        }
     }
 
     public function author($username)
     {
-        $author = User::where('username', $username)->firstOrFail();
+        $author = User::where('username', $username)->firstOrFail()->paginate(6);
         $beritas = $author->berita;
         $beritas2 = $author->berita()->latest()->first();
         $users = Auth::user();

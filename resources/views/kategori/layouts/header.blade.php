@@ -45,11 +45,16 @@
                 </form>
             </div>
             <div class="nav-btn">
-                @if (Auth::user('guest'))
+                @auth
                     <button class="buat-tulisan mx-1 ms-4"><a style="text-decoration: none; color: #031927" href="/buat-tulisan">Buat Tulisan</a></button>
-                    <button type="button" style="width:50px;" class="masuk mx-1 me-4 btn btn-danger dropdown-toggle dropdown-toggle-split fas fa-circle-user" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                    <button type="button" style="width:100px;" class="masuk mx-1 me-2 btn btn-danger dropdown-toggle dropdown-toggle-split fa" data-bs-toggle="dropdown" aria-expanded="false">
+                        <p style="text-decoration: none; color: #031927">{{ $users->username }}</p>
+                    </button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="/profile/{{ $users->username }}">Profile</a></li>
+                        @if ($users->role_id == 1)
+                            <li><a class="dropdown-item" href="/admin/laporan-berita">Lihat Laporan</a></li>
+                        @endif
                         <li><hr class="dropdown-divider"></li>
                         <li><button class="masuk mx-1"><a style="text-decoration: none; color: #031927" href="/logout">Keluar</a></button></li>
                     </ul>
@@ -74,7 +79,7 @@
                             </div>
                         </div>
                     </div>
-                @endif
+                @endauth
             </div>
 
         </div>

@@ -23,11 +23,11 @@
                                 @if ($beritaa->gambar)
                                     <img src="{{ asset('storage/' . $beritaa->gambar) }}" style="object-fit: cover; width: 100%; height: 478px; max-width: 819px;" class="d-block w-100 rounded-4" alt="...">
                                 @else
-                                    <img src="https://picsum.photos/seed/{{ $berita->kategori->kategori }}/1417/745" style="object-fit: cover; width: 100%; height: 478px; max-width: 819px;" class="d-block w-100 rounded-4" alt="...">
+                                    <img src="https://picsum.photos/seed/{{ $beritaa->kategori->kategori }}/1417/745" style="object-fit: cover; width: 100%; height: 478px; max-width: 819px;" class="d-block w-100 rounded-4" alt="...">
                                 @endif
                                 <div class="carousel-caption d-none d-md-block mb-4 py-0">
                                     <h5 class="m-0">{{ $beritaa->judul }}</h5>
-                                    <p class="m-0">{{ $beritaa->rangkuman }}</p>
+                                    <p class="m-0">{{ Str::limit(strip_tags($beritaa->rangkuman)) }}</p>
                                 </div>
                             </a>
                         </div>
@@ -184,9 +184,9 @@
                 <div class="ukb-card">
                     <a href="/berita/{{ $berita->slug }}" style="text-decoration: none; color:black;">
                         @if ($berita->gambar)
-                            <img src="{{ asset('storage/' . $berita->gambar) }}" class="card-img" alt="...">
+                            <img src="{{ asset('storage/' . $berita->gambar) }}" style="object-fit: cover; width: 100%; height: 300px; max-width: 500px;" class="card-img" alt="...">
                         @else
-                            <img src="https://picsum.photos/seed/{{ $berita->kategori->kategori }}/1471/745" class="card-img" alt="">
+                            <img src="https://picsum.photos/seed/{{ $berita->kategori->kategori }}/1471/745" style="object-fit: cover; width: 100%; height: 300px; max-width: 500px;" class="card-img" alt="">
                         @endif
                         <p class="card-text p-1">{{ $berita->judul }}</p>
                     </a>
