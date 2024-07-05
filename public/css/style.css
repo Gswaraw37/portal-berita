@@ -10,6 +10,10 @@ body {
 /* header {
     position: sticky;
 } */
+body {
+    overflow-x: hidden;
+}
+
 .top-bar {
     background: var(--primer, #383961);
     display: flex;
@@ -25,6 +29,7 @@ body {
     font-weight: 400;
     font-size: 30px;
     font-family: 'Pacifico', cursive;
+    overflow: hidden;
 }
 
 .top-bar .search-bar {
@@ -381,6 +386,7 @@ body {
     text-align: center;
     height: 70px;
     transition: 0.3s;
+    overflow: hidden;
 }
 
 .single-news .right-img .caption h6 {
@@ -395,6 +401,7 @@ body {
     opacity: 0;
     transition: 0.7s;
     transition-duration: 1s;
+    overflow: hidden;
 }
 
 .single-news .right-img:hover .caption {
@@ -685,14 +692,14 @@ body {
 
 .profil-saya .tulisan-populer .title {
     color: #000;
-    font-size: 21px;
+    font-size: 20px;
     font-weight: 500;
-    line-height: 0.6;
+    line-height: 1.5;
 }
 
 .profil-saya .tulisan-populer .penulis {
     color: #000;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .profil-saya .tulisan-populer .keterangan {
@@ -1111,4 +1118,151 @@ select {
     border-width: 1px;
     border-color: #383961;
     background: #383961;
+}
+
+@media screen and (max-width: 1024px) {
+    .top-bar .nav-btn {
+        width: 200px;
+        overflow: hidden;
+    }
+
+    .top-bar .search-bar {
+        width: 80%;
+        overflow: hidden;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .top-bar .nav-btn {
+        width: 180px;
+        overflow: hidden;
+    }
+
+    .top-bar .buat-tulisan {
+        width: 100px;
+    }
+
+    .berita-terkini .carousel .carousel-inner .bt-img {
+        height: 200px;
+    }
+    
+    .footer .footer-1 h1 {
+        font-size: 35px;
+    }
+
+    .footer .footer-1 p {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .top-bar {
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .top-bar h2 {
+        font-size: 25px;
+    }
+
+    .top-bar .search-bar {
+        display: none;
+        overflow: hidden;
+    }
+
+    .top-bar .nav-btn {
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+        overflow: hidden;
+    }
+
+    .top-bar button {
+        width: 100px;
+        margin: 5px 0;
+        overflow: hidden;
+    }
+
+    .carousel-caption h5 {
+        font-size: 18px;
+    }
+
+    .carousel-caption p {
+        font-size: 12px;
+    }
+
+    .berita-terkini .carousel .carousel-inner .bt-img {
+        height: 180px;
+    }
+
+    .profil-saya-left .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profil-saya-left img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .profil-saya-left-text {
+        margin-top: 20px;
+    }
+
+    .profil-saya-left-text .nama,
+    .profil-saya-left-text .tulisan,
+    .profil-saya-left-text .kali-dibaca,
+    .profil-saya-left-text .bergabung-sejak {
+        font-size: 18px;
+    }
+
+    .edit-profil .input-nama,
+    .edit-profil .input-kata-sandi {
+        width: 100%;
+    }
+
+    .edit-profil .input-nama input,
+    .edit-profil .input-kata-sandi input {
+        width: 70%;
+    }
+
+    .buat-tulisan-nav .edit {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .top-bar h2 {
+        font-size: 20px;
+    }
+
+    .berita-terkini .carousel .carousel-inner .bt-img {
+        height: 150px;
+    }
+
+    .profil-saya-left img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .profil-saya-left-text .nama,
+    .profil-saya-left-text .tulisan,
+    .profil-saya-left-text .kali-dibaca,
+    .profil-saya-left-text .bergabung-sejak {
+        font-size: 16px;
+    }
+
+    .footer .footer-1 h1 {
+        font-size: 30px;
+    }
+
+    .footer .footer-1 p {
+        font-size: 16px;
+    }
+
+    .buat-tulisan-nav .edit {
+        flex-direction: column;
+    }
 }

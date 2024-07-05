@@ -69,8 +69,8 @@ class ProfileController extends Controller
 
     public function author($username)
     {
-        $author = User::where('username', $username)->firstOrFail()->paginate(6);
-        $beritas = $author->berita;
+        $author = User::where('username', $username)->firstOrFail();
+        $beritas = $author->berita()->latest()->paginate(6);
         $beritas2 = $author->berita()->latest()->first();
         $users = Auth::user();
         $kategoris = Kategori::all();

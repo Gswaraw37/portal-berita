@@ -34,7 +34,7 @@
             <div class="me-2">
                 <form class="search-bar" role="search" action="/search">
                     <input class="form-control" type="text" id="search-bar" name="search" placeholder="Cari di sini" value="{{ request('search') }}" />
-                    <button class="btn btn-outline-success" style="display: flex; place-items: center; background-color:#383961; border-color:#383961;" type="submit">
+                    <button class="btn btn-outline-success" style="display: flex; place-items: center; background-color:#383961; border-color:#383961; overflow: hidden;" type="submit">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <path
                                 d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
@@ -48,8 +48,8 @@
             <div class="nav-btn">
                 @auth
                     <button class="buat-tulisan mx-1 ms-4"><a style="text-decoration: none; color: #031927" href="/buat-tulisan">Buat Tulisan</a></button>
-                    <button type="button" style="width:100px;" class="masuk mx-1 me-2 btn btn-danger dropdown-toggle dropdown-toggle-split fa" data-bs-toggle="dropdown" aria-expanded="false">
-                        <p style="text-decoration: none; color: #031927">{{ $users->username }}</p>
+                    <button type="button" style="width:100px; overflow: hidden;" class="masuk mx-1 me-2 btn btn-danger dropdown-toggle dropdown-toggle-split fa" data-bs-toggle="dropdown" aria-expanded="false">
+                        <p style="text-decoration: none; color: #031927; overflow: hidden;">{{ $users->username }}</p>
                     </button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="/profile/{{ $users->username }}">Profile</a></li>
@@ -128,9 +128,9 @@
                             <div class="ukb-card">
                                 <a href="/berita/{{ $beritas2->slug }}" style="text-decoration: none; color:black;">
                                     @if ($beritas2->gambar)
-                                        <img src="{{ $beritas2->gambar ? asset('storage/' . $beritas2->gambar) : 'https://source.unsplash.com/1417x745?' }}" style="object-fit: cover; width: 100%; height: 200px; max-width: 425px;" class="d-block w-100 rounded-4" alt="...">
+                                        <img src="{{ $beritas2->gambar ? asset('storage/' . $beritas2->gambar) : 'https://source.unsplash.com/1417x745?' }}" style="object-fit: cover; width: 100%; height: 150px; max-width: 400px;" class="w-100 rounded-4 text-center" alt="...">
                                     @else
-                                        <img src="https://picsum.photos/seed/{{ $beritas2->kategori->kategori }}/1471/745" style="object-fit: cover; width: 100%; height: 200px; max-width: 425px;" class="card-img" alt="">
+                                        <img src="https://picsum.photos/seed/{{ $beritas2->kategori->kategori }}/1471/745" style="object-fit: cover; width: 100%; height: 150px; max-width: 400px;" class="card-img" alt="">
                                     @endif
                                     <p class="card-text p-1">{{ $beritas2->judul }}</p>
                                 </a>
@@ -191,7 +191,6 @@
         <div style="margin: 0 auto">
             {{ $beritas->links() }}
         </div>
-        <a href="/buat-tulisan"><button class="px-5 py-1 mb-5">Tambah Tulisan</button></a>
     </div>
 
     <!-- PROFIL SAYA END -->

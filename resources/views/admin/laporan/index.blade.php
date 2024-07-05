@@ -33,7 +33,7 @@
             <div class="me-2">
                 <form class="search-bar" role="search" action="/search">
                     <input class="form-control" type="text" id="search-bar" name="search" placeholder="Cari di sini" value="{{ request('search') }}" />
-                    <button class="btn btn-outline-success" style="display: flex; place-items: center; background-color:#383961; border-color:#383961;" type="submit">
+                    <button class="btn btn-outline-success" style="display: flex; place-items: center; background-color:#383961; border-color:#383961; overflow: hidden;" type="submit">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                             <path
                                 d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z"
@@ -45,13 +45,16 @@
                 </form>
             </div>
             <div class="nav-btn">
-                @if (Auth::user('guest'))
+                @auth
                     <button class="buat-tulisan mx-1 ms-4"><a style="text-decoration: none; color: #031927" href="/buat-tulisan">Buat Tulisan</a></button>
-                    <button type="button" style="width:100px;" class="masuk mx-1 me-2 btn btn-danger dropdown-toggle dropdown-toggle-split fa" data-bs-toggle="dropdown" aria-expanded="false">
-                        <p style="text-decoration: none; color: #031927">{{ $users->username }}</p>
+                    <button type="button" style="width:100px; overflow: hidden;" class="masuk mx-1 me-2 btn btn-danger dropdown-toggle dropdown-toggle-split fa" data-bs-toggle="dropdown" aria-expanded="false">
+                        <p style="text-decoration: none; color: #031927; overflow: hidden;">{{ $users->username }}</p>
                     </button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="/profile/{{ $users->username }}">Profile</a></li>
+                        @if ($users->role_id == 1)
+                            <li><a class="dropdown-item" href="/admin/laporan-berita">Lihat Laporan</a></li>
+                        @endif
                         <li><hr class="dropdown-divider"></li>
                         <li><button class="masuk mx-1"><a style="text-decoration: none; color: #031927" href="/logout">Keluar</a></button></li>
                     </ul>
@@ -76,7 +79,7 @@
                             </div>
                         </div>
                     </div>
-                @endif
+                @endauth
             </div>
         </div>
         <!-- TOPBAR END -->
